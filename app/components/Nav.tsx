@@ -1,8 +1,19 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+import { supabase } from "@/lib/supabase-client";
 import Link from "next/link";
+import { useUser } from "../providers/UserProvider";
 
 const Nav = () => {
+  const router = useRouter();
+
+  const { user } = useUser();
+  const handleSignOut = async () => {
+    await supabase.auth.signOut();
+    router.refresh();
+  };
+
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
@@ -24,9 +35,16 @@ const Nav = () => {
           <li>
             <Link href={"/"}>Property</Link>
           </li>
-          <li>
-            <Link href={"/auth"}>Sign in</Link>
-          </li>
+          {user ? (
+            <li>
+                   <button onClick={handleSignOut}>Sign out</button>
+
+            </li>
+          ) : (
+            <li>
+              <Link href={"/auth"}>Sign in</Link>
+            </li>
+          )}
         </ul>
       </div>
     </div>

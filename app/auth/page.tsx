@@ -8,12 +8,13 @@ import React from "react";
 const Login = () => {
   return (
     <div className="grid grid-cols-2">
-      <div>put image here</div>
+      <div></div>
       <div className="py-32 px-64">
         <Auth
           supabaseClient={supabase}
           appearance={{ theme: ThemeSupa }}
           providers={["google", "facebook", "twitter"]}
+          redirectTo="/"
         />
       </div>
     </div>
