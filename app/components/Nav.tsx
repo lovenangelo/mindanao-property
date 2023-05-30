@@ -23,7 +23,7 @@ const Nav = () => {
             <Link href={"/"}>Property</Link>
           </li>
           <li>
-            <Link href={"/auth/login"}>Sign in</Link>
+            <Link href={"/auth"}>Sign in</Link>
           </li>
         </ul>
       </div>
