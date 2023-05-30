@@ -1,11 +1,25 @@
 "use client";
 
-import Nav from "./components/Nav";
+import { useRouter } from "next/navigation";
+import Guest from "./components/Guest";
+import { useUser } from "./providers/UserProvider";
+import { useEffect } from "react";
 
 export default function Home() {
+  const { user, isLoading } = useUser();
+  const router = useRouter();
+  console.log(user);
+
+  useEffect(() => {
+    if (user) {
+      router.push("/dashboard");
+    }
+    return () => {};
+  }, [user]);
+
   return (
     <main className="min-h-screen items-center">
-      <Nav />
+      {user == null && <Guest />}
     </main>
   );
 }
