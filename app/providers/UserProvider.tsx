@@ -28,7 +28,9 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
       const currentUser = session?.user;
       setUser(currentUser ?? null);
       setLoading(false);
-      router.push("/");
+      if (currentUser) {
+        router.push("/");
+      }
     }
 
     supabase.auth
