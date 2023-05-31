@@ -1,13 +1,7 @@
 import React from "react";
-import Nav from "./Nav";
 
 const Guest = () => {
-  return (
-    <div>
-      <Nav />
-      Guest
-    </div>
-  );
+  return <div>Guest</div>;
 };
 
 export default Guest;

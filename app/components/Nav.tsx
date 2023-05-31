@@ -9,6 +9,7 @@ const Nav = () => {
   const router = useRouter();
 
   const { user } = useUser();
+
   const handleSignOut = async () => {
     await supabase.auth.signOut();
     router.refresh();
@@ -33,12 +34,11 @@ const Nav = () => {
             <Link className="font-sans font-medium" href={"/"}>Pricing</Link>
           </li>
           <li>
-            <Link className="font-sans font-medium" href={"/"}>Property</Link>
+            <Link className="font-sans font-medium" href={"/properties"}>Properties</Link>
           </li>
           {user ? (
             <li>
                    <button className="font-sans font-medium" onClick={handleSignOut}>Sign out</button>
-
             </li>
           ) : (
             <li>
