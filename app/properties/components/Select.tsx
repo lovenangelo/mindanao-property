@@ -1,9 +1,8 @@
 import React, { ReactNode } from "react";
-
 const Select = ({ name, options }: { name: string; options: ReactNode }) => {
   return (
-    <select className="px-4 py-2">
-      <option value="" disabled selected>
+    <select defaultValue={""} className="px-4 py-2 appearance-none">
+      <option value="" disabled>
         {name}
       </option>
       {options}

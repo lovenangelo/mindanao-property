@@ -78,7 +78,9 @@ const PropertiesPage = () => {
     },
   ];
 
-  const cards = cardsData.map((card) => <PropertyCard info={card} />);
+  const cards = cardsData.map((card, index) => (
+    <PropertyCard key={index} info={card} />
+  ));
 
   return <div className="grid grid-cols-4 row-auto gap-8">{cards}</div>;
 };

@@ -13,16 +13,33 @@ export default function PropertiesLayout({
         <h1 className="text-2xl font-bold">All Properties</h1>
         <div className="space-x-4">
           <Select
-            name="Sort by price"
-            options={<option value="hurr">Durr</option>}
+            name="Sort by price &#9660;"
+            options={
+              <>
+                <option value="asc">Ascending</option>
+                <option value="asc">Descending</option>
+              </>
+            }
           />
           <Select
-            name="Sort by type"
-            options={<option value="hurr">Durr</option>}
+            name="Sort by type &#9660;"
+            options={
+              <>
+                <option value="asc">Ascending</option>
+                <option value="asc">Descending</option>
+              </>
+            }
           />
           <Select
-            name="Sort by date"
-            options={<option value="hurr">Durr</option>}
+            name="Sort by date &#9660;"
+            options={
+              <>
+                <option value="asc">Ascending</option>
+                <option value="asc">Descending</option>
+                <option value="asc">This week</option>
+                <option value="asc">This month</option>
+              </>
+            }
           />
         </div>
       </div>
