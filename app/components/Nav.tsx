@@ -16,38 +16,40 @@ const Nav = () => {
   };
 
   return (
-    <div className="navbar bg-base-100">
-      <div className="flex-1">
+    <div className="navbar bg-base-200 bg-opacity-15">
+      <div className="flex-1 ml-28 ">
         <Link href="/" className="btn btn-ghost normal-case text-xl">
-          Mindanao Property
+          <img className="h-12 w-44" src="/assets/logo/logo.png" alt="" />
         </Link>
       </div>
       <div className="flex-none">
-        <ul className="menu menu-horizontal px-1">
+        <ul className="menu menu-horizontal px-1 mr-16">
           <li>
-            <Link href={"/"}>Home</Link>
+            <Link className="font-sans font-medium" href={"/"}>Home</Link>
           </li>
           <li>
-            <Link href={"/"}>Contact</Link>
+            <Link className="font-sans font-medium" href={"/"}>Contact</Link>
           </li>
           <li>
-            <Link href={"/"}>Pricing</Link>
+            <Link className="font-sans font-medium" href={"/"}>Pricing</Link>
           </li>
           <li>
-            <Link href={"/properties"}>Properties</Link>
+            <Link className="font-sans font-medium" href={"/properties"}>Properties</Link>
           </li>
           {user ? (
             <li>
-              <button onClick={handleSignOut}>Sign out</button>
+                   <button className="font-sans font-medium" onClick={handleSignOut}>Sign out</button>
             </li>
           ) : (
             <li>
-              <Link href={"/auth"}>Sign in</Link>
+              <Link className="font-sans font-medium" href={"/auth"}>Sign in</Link>
             </li>
           )}
         </ul>
       </div>
     </div>
+    // Hero Section
+    
   );
 };
 
