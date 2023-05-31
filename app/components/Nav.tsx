@@ -34,7 +34,7 @@ const Nav = () => {
             <Link href={"/"}>Pricing</Link>
           </li>
           <li>
-            <Link href={"/"}>Properties</Link>
+            <Link href={"/properties"}>Properties</Link>
           </li>
           {user ? (
             <li>
