@@ -6,7 +6,7 @@ import { useUser } from "./providers/UserProvider";
 import { useEffect } from "react";
 
 export default function Home() {
-  const { user, isLoading } = useUser();
+  const { user } = useUser();
   const router = useRouter();
 
   useEffect(() => {
