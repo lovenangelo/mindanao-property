@@ -10,15 +10,13 @@ const PropertyCard = ({
   };
 }) => {
   return (
-    <div className="w-[400px] h-[400px] grid grid-cols-1 rounded-2xl grid-rows-3 overflow-hidden border-black border-2 border-opacity-75">
+    <div className="w-[400px] h-[400px] grid grid-cols-1 rounded-2xl grid-rows-3 overflow-hidden border-black border-[2px] border-opacity-50 shadow-md hover:shadow-xl hover:cursor-pointer">
       <div className="h-full w-full row-span-2 overflow-hidden">
-        <div className="p-4">
-          <img
-            className="row-span-2 object-cover rounded-2xl"
-            src={info.images[0]}
-            alt="Picture of the author"
-          />
-        </div>
+        <img
+          className="row-span-2 object-cover"
+          src={info.images[0]}
+          alt="Picture of the author"
+        />
       </div>
       <div className="flex flex-col p-4 h-full w-full justify-around overflow-hidden">
         <div>

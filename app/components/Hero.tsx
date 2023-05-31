@@ -26,7 +26,7 @@ const Hero = () => {
           <button className="font-sans font-medium btn btn-primary text-accent mb-12">
             List your property
           </button>
-          <Search />
+          <Search canBeInvisible={false} />
         </div>
       </div>
     </div>
