@@ -15,7 +15,7 @@ const Hero = () => {
               We are offering the
             </h2>
           </div>
-          <h1 className="text-5xl font-serif font-bold text-accent">
+          <h1 className="text-6xl font-serif font-bold text-accent">
             Best Real Estate Deals
           </h1>
           <p className="font-sans font-medium py-6 lg:mr-96 text-accent">
