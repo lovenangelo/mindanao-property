@@ -5,7 +5,7 @@ import RecentProperties from "./RecentProperties";
 
 const Guest = () => {
   return (
-    <div className="space-y-24">
+    <div>
       <Hero />
       <FeaturedProperties />
       <RecentProperties />
