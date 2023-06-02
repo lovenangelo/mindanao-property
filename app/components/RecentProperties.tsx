@@ -1,16 +1,7 @@
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  Typography,
-  Button,
-} from "@material-tailwind/react";
-import { ArrowLongRightIcon } from "@heroicons/react/24/outline";
-
 const RecentProperties = () => {
   return (
    
-    <section>
+    <section className="container-lg">
       <div className="flex flex-col text-center">
         <h1 className="text-5xl font-serif font-bold text-secondary">
           Similar Properties
