@@ -147,7 +147,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="">
+      <div>
         <div className="container px-5 py-4 mx-auto">
           <p className="text-sm text-gray-700 capitalize xl:text-center">
             © 2023 All rights reserved
