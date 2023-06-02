@@ -1,12 +1,28 @@
 import Search from "./Search";
 
+
 const Hero = () => {
+
+  const style:React.CSSProperties = {
+    position: "absolute", 
+    height: "inherit",
+    width: "100%",
+    top: "10",
+    left: "0",
+    background: "rgba(0,0,0,0.30)",
+    color: "white",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "column"
+  }
+  
   return (
     <div
-      className="hero container-lg min-h-screen" 
-      style={{ backgroundImage: "url(/assets/img/Hero.png)" }}
+      className="hero container-lg" 
+      style={{ backgroundImage: "url(/assets/img/Hero.png)", height: "80vh", display: "flex" }}
     >
-      <div className="hero-overlay bg-opacity-60" />
+      <div className="overlay bg-opacity-60" style={style} />
       <div className="hero-content" >
         <div>
           <div className="flex items-center mt-48">
