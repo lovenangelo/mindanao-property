@@ -3,11 +3,10 @@ import Search from "./Search";
 const Hero = () => {
   return (
     <div
-      className="hero container-lg min-h-screen"
-      style={{ backgroundImage: "url(/assets/img/Hero.png)" }}
+      className="hero container-lg min-h-screen bg-hero"
     >
       <div className="hero-overlay bg-opacity-60" />
-      <div className="hero-content" style={{ height: "80vh" }}>
+      <div className="hero-content h" style={{ height: "80vh" }}>
         <div>
           <div className="flex items-center mt-48">
             <hr className="w-20 top-5 h-0.5 my-4 mr-2 align-items-center border-0 rounded bg-accent bg-opacity-60" />
