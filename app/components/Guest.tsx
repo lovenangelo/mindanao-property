@@ -9,6 +9,7 @@ const Guest = () => {
       <Hero />
       <FeaturedProperties />
       <RecentProperties />
+      
     </div>
   );
 };

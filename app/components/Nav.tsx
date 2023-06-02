@@ -31,11 +31,6 @@ const Nav = () => {
           </li>
           <li>
             <Link className="font-sans font-medium" href={"/"}>
-              Contact
-            </Link>
-          </li>
-          <li>
-            <Link className="font-sans font-medium" href={"/"}>
               Pricing
             </Link>
           </li>
