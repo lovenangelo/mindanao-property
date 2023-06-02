@@ -2,7 +2,7 @@
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className="px-32">
       <div className="p-4 container flex flex-col flex-wrap px-5 py-24 mx-auto md:items-center md:flex-row md:flex-no-wrap">
         <div className="flex-shrink-0 w-64 mx-auto text-center md:mx-0 md:text-left justify-center">
           <img
@@ -147,7 +147,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="">
+      <div>
         <div className="container px-5 py-4 mx-auto">
           <p className="text-sm text-gray-700 capitalize xl:text-center">
             © 2023 All rights reserved
