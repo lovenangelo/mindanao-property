@@ -1,13 +1,14 @@
 const RecentProperties = () => {
   return (
-   
-    <section className="container-lg">
+    <section className="">
       <div className="flex flex-col text-center">
         <h1 className="text-5xl font-serif font-bold text-secondary">
           Similar Properties
         </h1>
         <p className="font-sans  py-6  ml-32 mr-32 mb-10 items-center">
-        Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+          Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
+          sint. Velit officia consequat duis enim velit mollit. Exercitation
+          veniam consequat sunt nostrud amet.
         </p>
       </div>
       <div className=" flex content-center w-3/4 ml-40 flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg">
@@ -19,15 +20,14 @@ const RecentProperties = () => {
           />
         </div>
         <div className="p-6">
-         
           <h4 className="font-serif text-primaryContent mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
             Lyft launching cross-platform service this week
           </h4>
           <p className="mb-12 font-sans textmb-8 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
             Like so many organizations these days, Autodesk is a company in
-            transition. It was until recently a traditional boxed software company
-            selling licenses. Yet its own business model disruption is only part of
-            the story
+            transition. It was until recently a traditional boxed software
+            company selling licenses. Yet its own business model disruption is
+            only part of the story
           </p>
           <a className="inline-block" href="#">
             <button
@@ -57,17 +57,15 @@ const RecentProperties = () => {
 
       {/* other similar properties */}
       <div className="mt-12 mb-12 relative flex w-3/4 ml-40 flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg ">
-      
         <div className="p-6">
-          
           <h4 className="font-serif text-primaryContent mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
             Lyft launching cross-platform service this week
           </h4>
           <p className="font-sans mb-8 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
             Like so many organizations these days, Autodesk is a company in
-            transition. It was until recently a traditional boxed software company
-            selling licenses. Yet its own business model disruption is only part of
-            the story
+            transition. It was until recently a traditional boxed software
+            company selling licenses. Yet its own business model disruption is
+            only part of the story
           </p>
           <a className="inline-block" href="#">
             <button
@@ -102,7 +100,9 @@ const RecentProperties = () => {
         </div>
       </div>
       <div className="text-center mb-12">
-        <button className="font-sans w-36 btn btn-outline btn-primary">View More</button>
+        <button className="font-sans w-36 btn btn-outline btn-primary">
+          View More
+        </button>
       </div>
     </section>
   );
