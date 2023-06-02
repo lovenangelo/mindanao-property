@@ -21,6 +21,7 @@ export default function RootLayout({
         <UserProvider>
           <Nav />
           {children}
+          <hr />
           <Footer />
         </UserProvider>
       </body>

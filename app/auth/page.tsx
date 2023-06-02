@@ -7,9 +7,7 @@ import { ThemeSupa } from "@supabase/auth-ui-shared";
 const Login = () => {
   return (
     <div className="flex min-h-screen">
-
       <div className="flex flex-row w-full">
-
         <div className="hidden lg:flex flex-col bg-hero bg-cover lg:p-8 xl:p-12 xl:max-w-l justify-center min-w-[100vh] ">
           <div className='hidden lg:flex flex-col justify-between bg-[#fea621c7] lg:p-8 xl:p-12 xl:max-w-lg h-full min-w-[88vh] max-h-full'>
             <div className="flex items-center justify-start space-x-3">
@@ -38,7 +36,6 @@ const Login = () => {
                 />
           </div>
         </div>
-        
       </div>
     </div>
   );
