@@ -1,11 +1,11 @@
 const RecentProperties = () => {
   return (
-    <section className="mt-24 mx-32">
+    <section className="mt-32 mx-32 space-y-12">
       <div className="flex flex-col text-center">
         <h1 className="text-5xl font-serif font-bold text-secondary">
           Recent Properties
         </h1>
-        <p className="font-sans  py-6  ml-32 mr-32 mb-10 items-center">
+        <p className="font-sans py-6  ml-32 mr-32 items-center">
           Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
           sint. Velit officia consequat duis enim velit mollit. Exercitation
           veniam consequat sunt nostrud amet.
@@ -56,7 +56,7 @@ const RecentProperties = () => {
       </div>
 
       {/* other similar properties */}
-      <div className="mt-12 mb-12 relative flex w-3/4 ml-40 flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg ">
+      <div className="relative flex w-3/4 ml-40 flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg ">
         <div className="p-6">
           <h4 className="text-primaryContent mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
             Lyft launching cross-platform service this week
@@ -99,7 +99,7 @@ const RecentProperties = () => {
           />
         </div>
       </div>
-      <div className="text-center mb-12">
+      <div className="text-center">
         <button className="font-sans w-36 btn btn-outline btn-primary">
           View More
         </button>

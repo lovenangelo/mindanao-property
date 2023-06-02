@@ -1,13 +1,16 @@
 const Newsletter = () => {
   return (
-    <div className="bg-[#C2C7C8] h-96 overflow-hidden grid grid-cols-2">
-      <img
-        src="/assets/img/Shapes.png"
-        alt="Orange Shapes"
-        role="img"
-        className="h-max w-max"
-      />
-      <div className="w-full flex">
+    <div className="bg-[#C2C7C8] h-96 overflow-hidden mt-24 grid grid-cols-2 px-32">
+      <div className="flex items-center justify-center">
+        <img
+          src="/assets/img/Shapes.png"
+          alt="Orange Shapes"
+          role="img"
+          className="h-max w-max "
+        />
+      </div>
+
+      <div className="w-full flex flex-col justify-center items-start">
         <h1 className="font-serif text-white text-2xl md:text-4xl xl:text-5xl font-bold leading-10 mb-4 text-center xl:text-left md:mt-0 mt-4">
           Don't Miss A Thing!
         </h1>
@@ -15,9 +18,9 @@ const Newsletter = () => {
           Subscribe with Email and loads of interesting news will be sent to you
           on a daily basis.
         </p>
-        <div className="flex items-stretch mt-12">
+        <div className="flex items-stretch mt-12 w-3/4">
           <input
-            className="bg-gray-100 rounded-lg rounded-r-none text-base leading-none text-gray-800 p-5 w-4/5 border border-transparent focus:outline-none focus:border-gray-500"
+            className="bg-gray-100 rounded-lg rounded-r-none text-base leading-none text-gray-800 p-5 w-full border border-transparent focus:outline-none focus:border-gray-500"
             type="email"
             placeholder="Your Email"
           />
