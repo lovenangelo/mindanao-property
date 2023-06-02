@@ -17,5 +17,5 @@ export default function Home() {
     return () => {};
   }, []);
 
-  return <main className="min-h-screen">{user == null && <Guest />}</main>;
+  return <main className="">{user == null && <Guest />}</main>;
 }

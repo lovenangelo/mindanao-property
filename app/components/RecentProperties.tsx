@@ -1,16 +1,7 @@
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  Typography,
-  Button,
-} from "@material-tailwind/react";
-import { ArrowLongRightIcon } from "@heroicons/react/24/outline";
-
 const RecentProperties = () => {
   return (
    
-    <section>
+    <section className="container-lg">
       <div className="flex flex-col text-center">
         <h1 className="text-5xl font-serif font-bold text-secondary">
           Similar Properties
@@ -29,7 +20,7 @@ const RecentProperties = () => {
         </div>
         <div className="p-6">
          
-          <h4 className="font-serif text-secondary mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+          <h4 className="font-serif text-primaryContent mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
             Lyft launching cross-platform service this week
           </h4>
           <p className="mb-12 font-sans textmb-8 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
@@ -69,7 +60,7 @@ const RecentProperties = () => {
       
         <div className="p-6">
           
-          <h4 className="font-serif text-secondary mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+          <h4 className="font-serif text-primaryContent mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
             Lyft launching cross-platform service this week
           </h4>
           <p className="font-sans mb-8 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
@@ -109,6 +100,9 @@ const RecentProperties = () => {
             className="h-full w-full object-cover"
           />
         </div>
+      </div>
+      <div className="text-center mb-12">
+        <button className="font-sans w-36 btn btn-outline btn-primary">View More</button>
       </div>
     </section>
   );
