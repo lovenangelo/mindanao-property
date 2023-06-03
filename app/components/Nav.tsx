@@ -30,7 +30,7 @@ const Nav = () => {
             </Link>
           </li>
           <li>
-            <Link className="font-sans font-medium" href={"/"}>
+            <Link className="font-sans font-medium" href={"/pricing"}>
               Pricing
             </Link>
           </li>
