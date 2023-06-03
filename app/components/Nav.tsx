@@ -16,7 +16,7 @@ const Nav = () => {
   };
 
   return (
-    <div className=" navbar container-lg bg-white">
+    <div className="navbar container-lg bg-slate-50 border-b-2 border-gray-200">
       <div className="flex-1 ml-28 ">
         <Link href="/" className="btn btn-ghost normal-case text-xl">
           <img className="h-12 w-44" src="/assets/logo/logo.png" alt="" />
