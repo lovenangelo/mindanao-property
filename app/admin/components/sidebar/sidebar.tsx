@@ -51,20 +51,21 @@ export const SidebarWrapper = () => {
                   <SidebarItem
                      title="Home"
                      icon={<HomeIcon />}
-                     isActive={router === '/'}
-                     href="/"
+                     isActive={router === '/admin'}
+                     href="/admin"
                   />
                   <SidebarMenu title="Main Menu">
                      <SidebarItem
-                        isActive={router === '/accounts'}
+                        isActive={router === '/admin/accounts'}
                         title="Accounts"
                         icon={<AccountsIcon />}
-                        href="accounts"
+                        href="/admin/accounts"
                      />
                      <SidebarItem
-                        isActive={router === '/payments'}
+                        isActive={router === '/admin/payments'}
                         title="Payments"
                         icon={<PaymentsIcon />}
+                        href="/admin/payments"
                      />
                      <CollapseItems
                         icon={<BalanceIcon />}
