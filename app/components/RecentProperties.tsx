@@ -11,9 +11,9 @@ const RecentProperties = () => {
           veniam consequat sunt nostrud amet.
         </p>
       </div>
-      <div className="grid grid-cols-1 row-auto w-full h-max gap-4">
+      <div className="grid grid-cols-1 row-auto w-full h-full gap-4">
         <div className="grid grid-cols-1 grid-rows-3 md:grid-rows-1 md:grid-cols-2 content-center w-full h-max rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg">
-          <div className="relative overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700 row-span-2 md:row-span-1">
+          <div className="overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700 row-span-2 md:row-span-1">
             <img
               src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1471&amp;q=80"
               alt="image"
@@ -54,7 +54,7 @@ const RecentProperties = () => {
           </div>
         </div>
         <div className="grid grid-cols-1 grid-rows-3 md:grid-rows-1 md:grid-cols-2 content-center w-full h-max rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg">
-          <div className="relative overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700 row-span-2 md:row-span-1">
+          <div className="overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700 row-span-2 md:row-span-1">
             <img
               src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1471&amp;q=80"
               alt="image"

@@ -8,7 +8,7 @@ const FeaturedProperties = () => {
   const desktop = useMediaQuery("(min-width: 768px)");
 
   return (
-    <section className="container-lg mt-8 mx-8 xl:mx-32 space-y-8">
+    <section className="container-lg mt-8 mx-8 md:mx-32 space-y-8">
       {!desktop && (
         <div className="flex items-center justify-center">
           <Search canBeInvisible={false} />
@@ -24,7 +24,7 @@ const FeaturedProperties = () => {
           or agent, we've got you covered.
         </p>
       </div>
-      <div className="container mx-auto lg:px-32">
+      <div className="container mx-auto">
         <div className="relative grid grid-cols-1 row-auto md:grid-cols-3 h-full grid-rows-2 gap-4">
           <div className="row-span-2">
             <div className="w-full h-full">

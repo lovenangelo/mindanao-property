@@ -73,7 +73,7 @@ const Footer = () => {
             </span>
           </div>
         </div>
-        <div className="">
+        <div className="mt-4 md:mt-0 flex flex-col items-center text-center md:text-start justify-center md:items-start md:justify-start">
           <h2 className="mb-3 text-sm font-medium text-gray-900 uppercase">
             About
           </h2>
@@ -95,7 +95,7 @@ const Footer = () => {
             </li>
           </nav>
         </div>
-        <div className="">
+        <div className="flex flex-col items-center text-center md:text-start justify-center md:items-start md:justify-start">
           <h2 className="mb-3 text-sm font-medium tracking-widest text-gray-900 uppercase title-font">
             Platform
           </h2>
@@ -117,7 +117,7 @@ const Footer = () => {
             </li>
           </nav>
         </div>
-        <div className="">
+        <div className="flex flex-col items-center text-center md:text-start justify-center md:items-start md:justify-start">
           <h1 className="mb-3 text-sm font-medium tracking-widest text-gray-900 uppercase title-font">
             Contact Info
           </h1>

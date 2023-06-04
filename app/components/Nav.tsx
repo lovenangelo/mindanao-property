@@ -9,7 +9,6 @@ import { useMediaQuery } from "usehooks-ts";
 
 const Nav = () => {
   const router = useRouter();
-
   const { user } = useUser();
   const desktop = useMediaQuery("(min-width: 768px)");
   const handleSignOut = async () => {
