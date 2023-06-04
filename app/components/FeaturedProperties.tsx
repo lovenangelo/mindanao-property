@@ -14,7 +14,7 @@ const FeaturedProperties = () => {
           <Search canBeInvisible={false} />
         </div>
       )}
-      <div className="flex flex-col text-center md:mt-32 space-y-8">
+      <div className="flex flex-col md:text-center md:mt-32 space-y-4">
         <h1 className="text-3xl md:text-5xl font-serif font-bold text-secondary">
           Featured Properties
         </h1>
@@ -25,7 +25,7 @@ const FeaturedProperties = () => {
         </p>
       </div>
       <div className="container mx-auto lg:px-32">
-        <div className="relative grid grid-cols-1 row-auto md:grid-cols-3 h-full grid-rows-2 gap-2">
+        <div className="relative grid grid-cols-1 row-auto md:grid-cols-3 h-full grid-rows-2 gap-4">
           <div className="row-span-2">
             <div className="w-full h-full">
               <img

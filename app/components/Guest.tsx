@@ -9,7 +9,7 @@ const Guest = () => {
     <div>
       <Hero />
       <FeaturedProperties />
-      {/* <RecentProperties /> */}
+      <RecentProperties />
       <Newsletter />
     </div>
   );
