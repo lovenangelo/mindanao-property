@@ -1,10 +1,19 @@
 import React from "react";
 import { IconArrowRight } from "@tabler/icons-react";
 import Link from "next/link";
+import { useMediaQuery } from "usehooks-ts";
+import Search from "./Search";
 
 const FeaturedProperties = () => {
+  const desktop = useMediaQuery("(min-width: 768px)");
+
   return (
-    <section className="container-lg mt-48 mx-32 ">
+    <section className="container-lg mt-8 mx-8 xl:mx-32 space-y-8">
+      {!desktop && (
+        <div className="flex items-center justify-center">
+          <Search canBeInvisible={false} />
+        </div>
+      )}
       <div className="flex flex-col text-center">
         <h1 className="text-5xl font-serif font-bold text-secondary">
           Featured Properties

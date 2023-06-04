@@ -1,6 +1,9 @@
 import Search from "./Search";
+import { useMediaQuery } from "usehooks-ts";
 
 const Hero = () => {
+  const desktop = useMediaQuery("(min-width: 768px)");
+
   const style: React.CSSProperties = {
     position: "absolute",
     height: "inherit",
@@ -44,9 +47,11 @@ const Hero = () => {
             List your property
           </button>
         </div>
-        <div className="absolute left-1/2 transform -translate-x-1/2 translate-y-full md:translate-y-0 md:-bottom-60 w-max">
-          <Search canBeInvisible={false} />
-        </div>
+        {desktop && (
+          <div className="absolute left-1/2 transform -translate-x-1/2 translate-y-full md:translate-y-0 md:-bottom-60 w-max">
+            <Search canBeInvisible={false} />
+          </div>
+        )}
       </div>
     </div>
   );
