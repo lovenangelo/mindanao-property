@@ -14,20 +14,20 @@ const FeaturedProperties = () => {
           <Search canBeInvisible={false} />
         </div>
       )}
-      <div className="flex flex-col text-center">
-        <h1 className="text-5xl font-serif font-bold text-secondary">
+      <div className="flex flex-col text-center md:mt-32 space-y-8">
+        <h1 className="text-3xl md:text-5xl font-serif font-bold text-secondary">
           Featured Properties
         </h1>
-        <p className="font-sans py-6 items-center">
+        <p className="font-sans items-center text-md md:text-lg">
           Find your dream home or showcase your property with ease on our
           intuitive real estate web app. Whether you're a homeowner, investor,
           or agent, we've got you covered.
         </p>
       </div>
-      <div className="container mx-auto px-5 py-2 lg:px-32 lg:pt-12">
-        <div className="grid grid-cols-3 h-full grid-rows-2 md:-m-2">
+      <div className="container mx-auto lg:px-32">
+        <div className="relative grid grid-cols-1 row-auto md:grid-cols-3 h-full grid-rows-2 gap-2">
           <div className="row-span-2">
-            <div className="w-full h-full p-1 md:p-2">
+            <div className="w-full h-full">
               <img
                 alt="gallery"
                 className="block h-full w-full rounded-lg object-cover object-center"
@@ -35,18 +35,18 @@ const FeaturedProperties = () => {
               />
             </div>
           </div>
-          <div className="relative flex items-center justify-center">
-            <div className="w-full p-1 filter brightness-50">
+          <div className="relative flex items-center justify-center w-full h-full overflow-hidden">
+            <div className="w-full filter brightness-50">
               <img
                 alt="gallery"
                 className="block h-full w-full rounded-lg object-cover object-center"
                 src="https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(74).webp"
               />
             </div>
-            <div className="absolute p-12">
-              <div className="flex flex-col items-center justify-center space-y-2">
+            <div className="absolute p-12 w-max h-max">
+              <div className="flex flex-col items-center justify-center space-y-2 w-full">
                 <h2 className="text-white text-2xl font-serif">New Property</h2>
-                <p className="text-white font-sans text-center">
+                <p className="text-white font-sans text-center w-52 sm:w-auto md:w-32 truncate">
                   Amet minim mollit non deserunt ullamco est sit aliqua dolor do
                   amet
                 </p>
@@ -60,7 +60,7 @@ const FeaturedProperties = () => {
             </div>
           </div>
           <div>
-            <div className="w-full p-1 md:p-2">
+            <div className="w-full">
               <img
                 alt="gallery"
                 className="block h-full w-full rounded-lg object-cover object-center"
@@ -69,7 +69,7 @@ const FeaturedProperties = () => {
             </div>
           </div>
           <div>
-            <div className="w-full p-1 md:p-2">
+            <div className="w-full">
               <img
                 alt="gallery"
                 className="block h-full w-full rounded-lg object-cover object-center"
@@ -78,7 +78,7 @@ const FeaturedProperties = () => {
             </div>
           </div>
           <div>
-            <div className="w-full p-1 md:p-2">
+            <div className="w-full">
               <img
                 alt="gallery"
                 className="block h-full w-full rounded-lg object-cover object-center"

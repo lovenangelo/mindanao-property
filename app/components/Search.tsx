@@ -5,7 +5,11 @@ const Search = ({ canBeInvisible }: { canBeInvisible: boolean }) => {
   const sticky = "sticky bottom-[0px] flex w-full py-10 px-32 items-center";
 
   return (
-    <div className={canBeInvisible ? sticky : "flex"}>
+    <div
+      className={
+        canBeInvisible ? sticky : "flex md:w-max md:py-6 md:px-32 md:h-full"
+      }
+    >
       <div
         className={`w-1/8 bg-slate-50 py-5 px-5 rounded shadow ${
           canBeInvisible ? "bg-opacity-75" : null
