@@ -3,37 +3,33 @@
 import { supabase } from "@/lib/supabase-client";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
+import Travel from "@/public/assets/img/Travel.svg";
 
 const Login = () => {
   return (
-    <div className="flex h-[calc(100vh-64px)]">
-      <div className="flex flex-row w-full">
-        <div className="hidden lg:flex flex-col bg-hero bg-cover lg:p-8 xl:p-12 xl:max-w-l justify-center min-w-[100vh] ">
-          <div className="hidden lg:flex flex-col justify-between bg-[#fea621c7] lg:p-8 xl:p-12 xl:max-w-lg h-full min-w-[88vh] max-h-full">
-            <div className="flex items-center justify-start space-x-3">
-              <span className="bg-black rounded-full w-8 h-8"></span>
-              <a href="#" className="font-medium text-xl">
-                Mindao Property
-              </a>
-            </div>
-            <div className="space-y-5 py-7">
-              <h1 className="lg:text-3xl xl:text-5xl xl:leading-snug font-extrabold">
-                We are offering the Best Real Estate Deals
-              </h1>
-              <p className="text-lg">You do not have an account?</p>
-              <button className="inline-block tracking-normal flex-none px-4 py-3 border-2 rounded-lg font-medium border-black bg-black text-white">
-                Create account here
-              </button>
-            </div>
-            <p className="font-medium">© 2023 Company</p>
-          </div>
+    <div className="h-[calc(100vh-64px)] p-24 w-full overflow-hidden">
+      <div className="grid grid-cols-2 grid-row-1 h-full w-full">
+        <div className="h-full flex justify-center items-center">
+          <img
+            className="h-3/4"
+            src="/assets/img/Travel.svg"
+            alt="travel illustration"
+          />
         </div>
-
-        <div className="flex flex-1 flex-col  justify-center relative">
-          <div className="flex flex-1 flex-col items-center justify-center space-y-5 ">
+        <div className="px-48">
+          <div>
+            <div className="flex items-center justify-center w-full">
+              <img
+                className="w-auto h-28 text-gray-900 fill-current"
+                src="/assets/logo/footer-logo.png"
+                alt="Logo"
+              />
+            </div>
             <Auth
               supabaseClient={supabase}
-              appearance={{ theme: ThemeSupa }}
+              appearance={{
+                theme: ThemeSupa,
+              }}
               providers={["google", "facebook", "apple"]}
               redirectTo="/"
             />

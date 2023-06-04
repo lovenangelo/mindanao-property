@@ -1,6 +1,7 @@
 "use client";
 
 import PropertyCard from "./components/PropertyCard";
+import Pagination from "../components/Pagination";
 
 const PropertiesPage = () => {
   const cardsData = [
@@ -82,7 +83,14 @@ const PropertiesPage = () => {
     <PropertyCard key={index} info={card} />
   ));
 
-  return <div className="grid grid-cols-4 row-auto gap-8">{cards}</div>;
+  return (
+    <div>
+      <div className="grid grid-cols-4 row-auto gap-8">{cards}</div>
+      <div className="flex item-center justify-center">
+        <Pagination />
+      </div>
+    </div>
+  );
 };
 
 export default PropertiesPage;
