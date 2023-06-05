@@ -1,9 +1,7 @@
-"use client";
-
 const DashboardPage = () => {
   return (
     <div className="min-h-screen">
-      <h1>Logged in</h1>
+      <h1>dashboard</h1>
     </div>
   );
 };

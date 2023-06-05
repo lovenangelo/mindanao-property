@@ -1,21 +1,13 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import Guest from "./components/Guest";
 import { useUser } from "./providers/UserProvider";
-import { useEffect } from "react";
-import Hero from "./components/Hero";
+import Authenticated from "./components/Authenticated";
 
 export default function Home() {
   const { user } = useUser();
-  const router = useRouter();
 
-  useEffect(() => {
-    if (user) {
-      router.push("/dashboard");
-    }
-    return () => {};
-  }, []);
-
-  return <main className="">{user == null && <Guest />}</main>;
+  return (
+    <main className="">{user == null ? <Guest /> : <Authenticated />}</main>
+  );
 }
