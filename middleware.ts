@@ -12,19 +12,19 @@ export async function middleware(req: NextRequest) {
     data: { session },
   } = await supabase.auth.getSession();
 
-  // if (!session) {
-  //   if (req.nextUrl.pathname.startsWith("/dashboard")) {
-  //     const redirectUrl = req.nextUrl.clone();
-  //     redirectUrl.pathname = "/auth";
-  //     return NextResponse.redirect(redirectUrl);
-  //   }
-  // } else {
-  //   if (req.nextUrl.pathname.startsWith("/auth")) {
-  //     const redirectUrl = req.nextUrl.clone();
-  //     redirectUrl.pathname = "/";
-  //     return NextResponse.redirect(redirectUrl);
-  //   }
-  // }
+  if (!session) {
+    if (req.nextUrl.pathname.startsWith("/dashboard")) {
+      const redirectUrl = req.nextUrl.clone();
+      redirectUrl.pathname = "/auth";
+      return NextResponse.redirect(redirectUrl);
+    }
+  } else {
+    if (req.nextUrl.pathname.startsWith("/auth")) {
+      const redirectUrl = req.nextUrl.clone();
+      redirectUrl.pathname = "/";
+      return NextResponse.redirect(redirectUrl);
+    }
+  }
 
   return res;
 }
