@@ -35,9 +35,6 @@ const Nav = () => {
     };
   }, []);
 
-  console.log(desktop >= 768 && user == null);
-  console.log(user);
-
   const navLinks = (
     <ul
       tabIndex={0}
@@ -88,11 +85,13 @@ const Nav = () => {
   );
 
   return (
-    <div className="navbar justify-between container-lg bg-slate-50">
+    <div className="navbar justify-between container-lg bg-slate-50 border-b-[1px] border-slate-400">
       <div className="flex lg:ml-14 xl:ml-28 items-center">
-        <Link href="/" className="btn btn-ghost normal-case text-xl">
-          <img className="h-12 w-44" src="/assets/logo/logo.png" alt="" />
-        </Link>
+        {user == null && (
+          <Link href="/" className="btn btn-ghost normal-case text-xl">
+            <img className="h-12 w-44" src="/assets/logo/logo.png" alt="" />
+          </Link>
+        )}
       </div>
       <div>
         {user && <AutoAvatar email={user.email!} />}

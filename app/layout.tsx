@@ -1,8 +1,8 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { UserProvider } from "./providers/UserProvider";
-import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import AuthenticatedLayout from "./authenticated-components/AuthenticatedLayout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,11 +20,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <UserProvider>
-          <Nav />
-          {children}
+          <AuthenticatedLayout>{children}</AuthenticatedLayout>
         </UserProvider>
         <hr />
-        <Footer />
       </body>
     </html>
   );
