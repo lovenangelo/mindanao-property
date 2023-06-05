@@ -82,7 +82,7 @@ const Nav = () => {
           <img className="h-12 w-44" src="/assets/logo/logo.png" alt="" />
         </Link>
       </div>
-      {desktop ? (
+      {desktop >= 768 ? (
         <div className="flex-none">{navLinks}</div>
       ) : (
         <div className="dropdown dropdown-end">
