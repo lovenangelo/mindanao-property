@@ -44,21 +44,25 @@ const Nav = () => {
           : "dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
       }
     >
-      <li>
-        <Link className="font-sans font-medium" href={"/"}>
-          Home
-        </Link>
-      </li>
-      <li>
-        <Link className="font-sans font-medium" href={"/pricing"}>
-          Pricing
-        </Link>
-      </li>
-      <li>
-        <Link className="font-sans font-medium" href={"/properties"}>
-          Properties
-        </Link>
-      </li>
+      {user == null && (
+        <>
+          <li>
+            <Link className="font-sans font-medium" href={"/"}>
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link className="font-sans font-medium" href={"/pricing"}>
+              Pricing
+            </Link>
+          </li>
+          <li>
+            <Link className="font-sans font-medium" href={"/properties"}>
+              Properties
+            </Link>
+          </li>
+        </>
+      )}
       {user ? (
         <li>
           <button className="font-sans font-medium" onClick={handleSignOut}>
