@@ -2,14 +2,17 @@
 
 import Footer from "../components/Footer";
 import Nav from "../components/Nav";
+import Loading from "../loading";
 import { useUser } from "../providers/UserProvider";
 
 const AuthenticatedLayout = ({ children }: { children: React.ReactNode }) => {
-  const { user } = useUser();
-  console.log(user);
+  const { user, isLoading } = useUser();
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   if (user == null) {
-    console.log("here");
     return (
       <div>
         <Nav />

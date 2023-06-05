@@ -82,7 +82,7 @@ const Nav = () => {
   const menu = (
     <div className="dropdown dropdown-end">
       <label tabIndex={0} className="btn m-1 bg-white border-0">
-        <IconMenu />
+        {user ? <AutoAvatar email={user.email!} /> : <IconMenu />}
       </label>
       {navLinks}
     </div>
@@ -98,7 +98,6 @@ const Nav = () => {
         )}
       </div>
       <div>
-        {user && <AutoAvatar email={user.email!} />}
         {user == null && desktop >= 768 ? (
           <div className="flex-none">{navLinks}</div>
         ) : (

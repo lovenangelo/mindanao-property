@@ -9,7 +9,9 @@ const AutoAvatar = ({ email }: { email: string }) => {
 
   return (
     <div
-      className={`flex items-center justify-center w-12 h-12 rounded-full bg-blue-500 text-white text-lg font-bold uppercase`}
+      className={
+        "flex items-center justify-center w-12 h-12 rounded-full bg-blue-500 text-white text-lg font-bold uppercase shadow-md"
+      }
     >
       {initial}
     </div>
