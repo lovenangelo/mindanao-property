@@ -6,21 +6,40 @@ import Link from "next/link";
 import { useUser } from "../providers/UserProvider";
 import { IconMenu } from "@tabler/icons-react";
 import { useMediaQuery } from "usehooks-ts";
+import { useEffect, useState } from "react";
 
 const Nav = () => {
   const router = useRouter();
   const { user } = useUser();
-  const desktop = useMediaQuery("(min-width: 768px)");
   const handleSignOut = async () => {
     await supabase.auth.signOut();
     router.refresh();
   };
 
+  const [desktop, setDesktop] = useState(window.innerWidth);
+
+  useEffect(() => {
+    // Update the window width when the component mounts
+    setDesktop(window.innerWidth);
+
+    // Update the window width when the window is resized
+    const handleResize = () => {
+      setDesktop(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const navLinks = (
     <ul
       tabIndex={0}
       className={
-        desktop
+        desktop >= 768
           ? "menu menu-horizontal px-1 mr-16"
           : "dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
       }
