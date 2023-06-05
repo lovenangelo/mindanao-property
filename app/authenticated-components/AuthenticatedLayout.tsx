@@ -20,9 +20,9 @@ const AuthenticatedLayout = ({ children }: { children: React.ReactNode }) => {
   }
 
   return (
-    <div className="flex w-full h-full">
-      <div className="w-64 min-h-screen border-r-[1px] border-slate-400 bg-slate-50"></div>
-      <div className="w-full flex flex-col">
+    <div className="flex w-full">
+      <div className="w-64 min-full border-r-[1px] border-slate-400 bg-slate-50"></div>
+      <div className="w-full h-auto flex flex-col">
         <Nav />
         {children}
       </div>
