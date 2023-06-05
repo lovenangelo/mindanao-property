@@ -5,8 +5,8 @@ import { supabase } from "@/lib/supabase-client";
 import Link from "next/link";
 import { useUser } from "../providers/UserProvider";
 import { IconMenu } from "@tabler/icons-react";
-import { useMediaQuery } from "usehooks-ts";
 import { useEffect, useState } from "react";
+import AutoAvatar from "./AutoAvatar";
 
 const Nav = () => {
   const router = useRouter();
@@ -35,11 +35,14 @@ const Nav = () => {
     };
   }, []);
 
+  console.log(desktop >= 768 && user == null);
+  console.log(user);
+
   const navLinks = (
     <ul
       tabIndex={0}
       className={
-        desktop >= 768
+        desktop >= 768 && user == null
           ? "menu menu-horizontal px-1 mr-16"
           : "dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
       }
@@ -75,6 +78,15 @@ const Nav = () => {
     </ul>
   );
 
+  const menu = (
+    <div className="dropdown dropdown-end">
+      <label tabIndex={0} className="btn m-1 bg-white border-0">
+        <IconMenu />
+      </label>
+      {navLinks}
+    </div>
+  );
+
   return (
     <div className="navbar justify-between container-lg bg-slate-50">
       <div className="flex lg:ml-14 xl:ml-28 items-center">
@@ -82,15 +94,10 @@ const Nav = () => {
           <img className="h-12 w-44" src="/assets/logo/logo.png" alt="" />
         </Link>
       </div>
-      {desktop >= 768 ? (
+      {user == null && desktop >= 768 ? (
         <div className="flex-none">{navLinks}</div>
       ) : (
-        <div className="dropdown dropdown-end">
-          <label tabIndex={0} className="btn m-1 bg-white border-0">
-            <IconMenu />
-          </label>
-          {navLinks}
-        </div>
+        menu
       )}
     </div>
   );
