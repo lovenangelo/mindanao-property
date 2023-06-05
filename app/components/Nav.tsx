@@ -94,11 +94,14 @@ const Nav = () => {
           <img className="h-12 w-44" src="/assets/logo/logo.png" alt="" />
         </Link>
       </div>
-      {user == null && desktop >= 768 ? (
-        <div className="flex-none">{navLinks}</div>
-      ) : (
-        menu
-      )}
+      <div>
+        {user && <AutoAvatar email={user.email!} />}
+        {user == null && desktop >= 768 ? (
+          <div className="flex-none">{navLinks}</div>
+        ) : (
+          menu
+        )}
+      </div>
     </div>
   );
 };
