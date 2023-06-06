@@ -1,10 +1,10 @@
 import {Col, Row, User, Text, Tooltip} from '@nextui-org/react';
 import React from 'react';
-import {DeleteIcon} from '../icons/table/delete-icon';
-import {EditIcon} from '../icons/table/edit-icon';
-import {EyeIcon} from '../icons/table/eye-icon';
-import {users} from './data';
-import {IconButton, StyledBadge} from './table.styled';
+import {DeleteIcon} from '../../icons/table/delete-icon';
+import {EditIcon} from '../../icons/table/edit-icon';
+import {EyeIcon} from '../../icons/table/eye-icon';
+import {users} from './account.data';
+import {IconButton, StyledBadge} from './account.table.styled';
 
 interface Props {
    user: typeof users[number];
@@ -27,15 +27,6 @@ export const RenderCell = ({user, columnKey}: Props) => {
                <Row>
                   <Text b size={14} css={{tt: 'capitalize'}}>
                      {cellValue}
-                  </Text>
-               </Row>
-               <Row>
-                  <Text
-                     b
-                     size={13}
-                     css={{tt: 'capitalize', color: '$accents7'}}
-                  >
-                     {user.team}
                   </Text>
                </Row>
             </Col>

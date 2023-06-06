@@ -37,14 +37,15 @@ export const StyledBadge = styled('span', {
             bg: '$successLight',
             color: '$successLightContrast',
          },
-         paused: {
+         cancelled: {
             bg: '$errorLight',
             color: '$errorLightContrast',
          },
-         vacation: {
+         suspended: {
             bg: '$warningLight',
             color: '$warningLightContrast',
          },
+        
       },
    },
    defaultVariants: {
