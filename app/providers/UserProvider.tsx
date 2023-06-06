@@ -3,7 +3,7 @@
 import { createContext, useContext } from "react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Session, User } from "@supabase/supabase-js";
+import { AuthChangeEvent, Session, User } from "@supabase/supabase-js";
 import { supabase } from "@/lib/supabase-client";
 
 const UserContext = createContext<
@@ -24,22 +24,28 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
 
   useEffect(() => {
-    function saveSession(session: Session | null) {
+    function saveSession(
+      session: Session | null,
+      event: AuthChangeEvent | null
+    ) {
       const currentUser = session?.user;
+      if (event != null && event == "SIGNED_IN") {
+        console.log("signed in");
+        router.replace("/");
+      }
       setUser(currentUser ?? null);
       setLoading(false);
-      if (currentUser) {
-        router.push("/");
-      }
     }
 
     supabase.auth
       .getSession()
-      .then(({ data: { session } }) => saveSession(session));
+      .then(({ data: { session } }) => saveSession(session, null));
 
     const { subscription } = supabase.auth.onAuthStateChange(
       async (event, session) => {
-        return saveSession(session);
+        console.log(event);
+        setLoading(true);
+        return saveSession(session, event);
       }
     ).data;
 

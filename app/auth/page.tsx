@@ -3,7 +3,6 @@
 import { supabase } from "@/lib/supabase-client";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
-import Travel from "@/public/assets/img/Travel.svg";
 
 const Login = () => {
   return (

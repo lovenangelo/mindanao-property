@@ -21,7 +21,7 @@ export async function middleware(req: NextRequest) {
   } else {
     if (req.nextUrl.pathname.startsWith("/auth")) {
       const redirectUrl = req.nextUrl.clone();
-      redirectUrl.pathname = "/dashboard";
+      redirectUrl.pathname = "/";
       return NextResponse.redirect(redirectUrl);
     }
   }
