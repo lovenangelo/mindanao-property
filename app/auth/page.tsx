@@ -1,42 +1,84 @@
-"use client";
+"use client"
 
-import { supabase } from "@/lib/supabase-client";
-import { Auth } from "@supabase/auth-ui-react";
-import { ThemeSupa } from "@supabase/auth-ui-shared";
+import { useState } from "react"
+import Link from "next/link"
 
-const Login = () => {
+import { Button } from "@/components/ui/button"
+import AuthLoader from "@/components/loaders/auth-loader"
+import { useUser } from "@/components/user-provider"
+
+import { UserAuthForm } from "./components/user-auth-form"
+
+export default function AuthPage() {
+  const [authType, setAuthType] = useState<string>("LOGIN")
+  const { user } = useUser()
+
+  if (user) {
+    return <AuthLoader />
+  }
+
   return (
-    <div className="h-[calc(100vh-64px)] p-24 w-full overflow-hidden">
-      <div className="grid grid-cols-2 grid-row-1 h-full w-full">
-        <div className="h-full flex justify-center items-center">
-          <img
-            className="h-3/4"
-            src="/assets/img/Travel.svg"
-            alt="travel illustration"
-          />
+    <div className="items-center h-[calc(100vh-65px)] justify-center p-16">
+      <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
+        <div className="flex flex-col space-y-2 text-center">
+          <h1 className="text-2xl font-semibold tracking-tight">
+            {authType == "SIGNUP" ? "Create an account" : "Sign In"}
+          </h1>
+          <p className="text-sm text-muted-foreground">
+            {authType == "SIGNUP"
+              ? "Enter your email below to create your account"
+              : "Enter your credentials below to login"}
+          </p>
         </div>
-        <div className="px-48">
-          <div>
-            <div className="flex items-center justify-center w-full">
-              <img
-                className="w-auto h-28 text-gray-900 fill-current"
-                src="/assets/logo/footer-logo.png"
-                alt="Logo"
-              />
-            </div>
-            <Auth
-              supabaseClient={supabase}
-              appearance={{
-                theme: ThemeSupa,
-              }}
-              providers={["google", "facebook", "apple"]}
-              redirectTo="/"
-            />
-          </div>
+        <UserAuthForm authtype={authType} />
+        <p className="px-8 text-center text-sm text-muted-foreground">
+          By clicking continue, you agree to our{" "}
+          <Link
+            href="/terms"
+            className="underline underline-offset-4 hover:text-primary"
+          >
+            Terms of Service
+          </Link>{" "}
+          and{" "}
+          <Link
+            href="/privacy"
+            className="underline underline-offset-4 hover:text-primary"
+          >
+            Privacy Policy
+          </Link>
+          .
+        </p>
+        <div className=" space-x-1 flex justify-center items-center">
+          {authType == "LOGIN" && (
+            <>
+              <p className="text-sm ">Don't have an account? </p>
+              <Button
+                onClick={() => {
+                  setAuthType("SIGNUP")
+                }}
+                variant={"link"}
+                size={"noPadding"}
+              >
+                Sign up
+              </Button>
+            </>
+          )}
+          {authType == "SIGNUP" && (
+            <>
+              <p className="text-sm ">Already have an account? </p>
+              <Button
+                onClick={() => {
+                  setAuthType("LOGIN")
+                }}
+                variant={"link"}
+                size={"noPadding"}
+              >
+                Sign in
+              </Button>
+            </>
+          )}
         </div>
       </div>
     </div>
-  );
-};
-
-export default Login;
+  )
+}
