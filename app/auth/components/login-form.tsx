@@ -52,6 +52,7 @@ export function LoginForm({
 
     if (data) {
       console.log(data)
+      router.push("/overview")
     }
 
     if (error) {

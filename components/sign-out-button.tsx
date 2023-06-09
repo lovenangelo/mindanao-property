@@ -16,8 +16,9 @@ export default function SignOutButton({ isLoading }: { isLoading: boolean }) {
         title: "Uh oh! Something went wrong.",
         description: error.message,
       })
+    } else {
+      router.push("/")
     }
-    router.refresh()
   }
 
   return (
