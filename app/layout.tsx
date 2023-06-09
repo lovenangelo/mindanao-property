@@ -1,6 +1,5 @@
 import "@/styles/globals.css"
 import { Metadata } from "next"
-import { Inter } from "next/font/google"
 
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
@@ -11,8 +10,6 @@ import { SideBarNav } from "@/components/side-bar-nav"
 import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
-
-const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: {
@@ -38,7 +35,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
-      <html className={inter.className} lang="en" suppressHydrationWarning>
+      <html lang="en" suppressHydrationWarning>
         <head />
         <body
           className={cn(

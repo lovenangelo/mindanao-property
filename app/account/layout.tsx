@@ -15,8 +15,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
   }
 
   return (
-    <div className="py-8 px-4 h-full w-full space-y-2 bg-secondary">
-      <h1 className="font-medium text-2xl">Account Settings</h1>
+    <div className="p-4 h-full w-full space-y-2 bg-secondary">
+      <h1 className="font-medium text-lg nd:text-2xl">Account Settings</h1>
       {children}
     </div>
   )
