@@ -1,15 +1,10 @@
-"use client"
-
 import Link from "next/link"
 
 import { siteConfig } from "@/config/site"
-import { cn } from "@/lib/utils"
 
 import { AuthenticatedNavMenuBar } from "./authenticated-nav-menu-bar"
 import { Icons } from "./icons"
-import { SideBarNav } from "./side-bar-nav"
 import { ThemeToggle } from "./theme-toggle"
-import { Button } from "./ui/button"
 
 export default function AuthenticatedNav() {
   return (

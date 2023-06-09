@@ -11,6 +11,7 @@ export default function SideBarBadge({ text }: { text: string }) {
         {text}
       </Badge>
       <Badge
+        variant={"destructive"}
         className={cn(
           "text-xs w-2 h-auto flex items-center justify-center font-semibold md:hidden"
         )}
