@@ -50,7 +50,7 @@ export function LoginForm({
       password,
     })
 
-    if (data) {
+    if (data.user) {
       console.log(data)
       router.push("/overview")
     }
@@ -63,7 +63,6 @@ export function LoginForm({
     }
 
     setIsLoading(false)
-    router.refresh()
   }
 
   function onSubmit(values: z.infer<typeof formSchema>) {

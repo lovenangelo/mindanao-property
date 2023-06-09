@@ -24,8 +24,8 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     function saveSession(session: Session | null) {
       const currentUser = session?.user
-      setLoading(false)
       setUser(currentUser ?? null)
+      setLoading(false)
     }
 
     supabase.auth
