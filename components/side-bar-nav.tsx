@@ -51,7 +51,7 @@ export function SideBarNav() {
       {!isLoading && user && (
         <div className="w-max min-h-screen border-r border-slate-400 flex flex-col">
           <div className="md:flex md:flex-col md:items-center justify-center hidden p-4 h-max">
-            <h2 className="font-bold">{user.user_metadata.first_name}</h2>
+            <h2 className="font-medium">{user.user_metadata.first_name}</h2>
             <p className="text-xs">{user.email}</p>
           </div>
           <div className="w-full grid grid-cols-1 row-auto gap-2 md:mt-4">
