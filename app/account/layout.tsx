@@ -17,7 +17,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <div className="p-4 h-full w-full space-y-2 bg-secondary">
       <h1 className="font-medium text-lg nd:text-2xl">Account Settings</h1>
-      {children}
+      <div className="w-full h-full bg-background p-8 rounded-lg">
+        {children}
+      </div>
     </div>
   )
 }
