@@ -72,12 +72,6 @@ export const siteConfig = {
       disabled: false,
       icon: Icons.account,
     },
-    {
-      title: "Settings",
-      href: "/settings",
-      disabled: false,
-      icon: Icons.settings,
-    },
   ],
   links: {
     twitter: "https://twitter.com/shadcn",
