@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 
-import { Icons } from "./icons"
 import { useUser } from "./providers/user-provider"
 import SideBarBadge from "./side-bar-badge"
 
