@@ -1,13 +1,13 @@
 "use client"
 
-import OverviewLoader from "@/components/loaders/overview-loader"
+import MainLoader from "@/components/loaders/main-loader"
 import { useUser } from "@/components/user-provider"
 
 export default function DashboardPage() {
   const { isLoading, user } = useUser()
 
   if (isLoading || !user) {
-    return <OverviewLoader />
+    return <MainLoader />
   }
 
   return <div className="p-4">OverviewPage</div>

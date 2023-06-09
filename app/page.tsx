@@ -4,14 +4,14 @@ import Link from "next/link"
 
 import { siteConfig } from "@/config/site"
 import { buttonVariants } from "@/components/ui/button"
-import { Skeleton } from "@/components/ui/skeleton"
+import MainLoader from "@/components/loaders/main-loader"
 import { useUser } from "@/components/user-provider"
 
 export default function IndexPage() {
   const { isLoading } = useUser()
 
   if (isLoading) {
-    return <Skeleton className="w-[100px] h-[20px] rounded-full" />
+    return <MainLoader />
   }
 
   return (

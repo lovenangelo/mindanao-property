@@ -4,7 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
-import AuthLoader from "@/components/loaders/auth-loader"
+import AuthLoader from "@/components/loaders/auth-loader-skeleton"
 import { useUser } from "@/components/user-provider"
 
 import { UserAuthForm } from "./components/user-auth-form"
