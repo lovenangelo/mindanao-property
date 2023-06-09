@@ -1,27 +1,37 @@
 "use client"
 
-import { useState } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 
 import { Icons } from "./icons"
 import { useUser } from "./providers/user-provider"
-import { Button } from "./ui/button"
+import SideBarBadge from "./side-bar-badge"
 
 export function SideBarNav() {
   const { isLoading, user } = useUser()
 
+  const path = usePathname()
+
   const list = siteConfig.sideBarNav
-  const items = list.map(
-    (item, index) =>
-      item.href && (
-        <Link key={index} href={item.href}>
-          {item.title}
+  const items = list.map((item, index) => (
+    <div
+      key={index}
+      className={cn(
+        "w-full",
+        path.includes(`/${item.title.toLowerCase()}`) && "bg-secondary"
+      )}
+    >
+      <div className={cn("w-full py-4 px-4 md:py-8 md:px-12")}>
+        <Link className={cn("flex space-x-4")} href={item.href}>
+          <item.icon />
+          <p className={cn("hidden md:block")}>{item.title}</p>
         </Link>
-      )
-  )
+      </div>
+    </div>
+  ))
 
   if (!isLoading && !user) {
     return <></>
@@ -30,65 +40,8 @@ export function SideBarNav() {
   return (
     <>
       {!isLoading && user && (
-        <div className="md:px-8 w-max min-h-screen border-r border-slate-400">
-          <ul className="w-full space-y-8 justify-start items-start p-4">
-            <li className="w-full">
-              <Link className="flex space-x-4" href={"/overview"}>
-                <Icons.overview />
-                <p className={cn("transition duration-500 hidden md:block")}>
-                  Overview
-                </p>
-              </Link>
-            </li>
-            <li>
-              <Link className="flex space-x-4" href={"/overview"}>
-                <Icons.property />
-                <p className={cn("transition duration-500 hidden md:block")}>
-                  Properties
-                </p>
-              </Link>
-            </li>
-            <li>
-              <Link className="flex space-x-4" href={"/overview"}>
-                <Icons.analytics />
-                <p className={cn("transition duration-500 hidden md:block")}>
-                  Reports
-                </p>
-              </Link>
-            </li>
-            <li>
-              <Link className="flex space-x-4" href={"/overview"}>
-                <Icons.notification />
-                <p className={cn("transition duration-500 hidden md:block")}>
-                  Notifications
-                </p>
-              </Link>
-            </li>
-            <li>
-              <Link className="flex space-x-4" href={"/overview"}>
-                <Icons.chat />
-                <p className={cn("transition duration-500 hidden md:block")}>
-                  Messages
-                </p>
-              </Link>
-            </li>
-            <li>
-              <Link className="flex space-x-4" href={"/overview"}>
-                <Icons.account />
-                <p className={cn("transition duration-500 hidden md:block")}>
-                  Account
-                </p>
-              </Link>
-            </li>
-            <li>
-              <Link className="flex space-x-4" href={"/overview"}>
-                <Icons.settings />
-                <p className={cn("transition duration-500 hidden md:block")}>
-                  Settings
-                </p>
-              </Link>
-            </li>
-          </ul>
+        <div className="w-max min-h-screen border-r border-slate-400">
+          <div className="w-full grid grid-cols-1 row-auto">{items}</div>
         </div>
       )}
     </>

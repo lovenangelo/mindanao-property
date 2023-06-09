@@ -1,3 +1,5 @@
+import { Icons } from "@/components/icons"
+
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
@@ -38,36 +40,43 @@ export const siteConfig = {
       title: "Overview",
       href: "/overview",
       disabled: false,
+      icon: Icons.overview,
     },
     {
       title: "Property",
       href: "/property",
       disabled: false,
+      icon: Icons.property,
     },
     {
       title: "Reports",
       href: "/reports",
       disabled: false,
+      icon: Icons.analytics,
     },
     {
       title: "Notifications",
       href: "/notifications",
       disabled: false,
+      icon: Icons.notification,
     },
     {
       title: "Message",
       href: "/message",
       disabled: false,
+      icon: Icons.chat,
     },
     {
       title: "Account",
       href: "/account",
       disabled: false,
+      icon: Icons.account,
     },
     {
       title: "Settings",
       href: "/settings",
       disabled: false,
+      icon: Icons.settings,
     },
   ],
   links: {
