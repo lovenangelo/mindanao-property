@@ -5,7 +5,7 @@ import Link from "next/link"
 import { siteConfig } from "@/config/site"
 import { buttonVariants } from "@/components/ui/button"
 import MainLoader from "@/components/loaders/main-loader"
-import { useUser } from "@/components/user-provider"
+import { useUser } from "@/components/providers/user-provider"
 
 export default function IndexPage() {
   const { isLoading } = useUser()

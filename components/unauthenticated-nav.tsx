@@ -8,8 +8,8 @@ import { cn } from "@/lib/utils"
 import { Icons } from "./icons"
 import { MainNav } from "./main-nav"
 import { NavMenuBar } from "./nav-menu-bar"
+import { useUser } from "./providers/user-provider"
 import { ThemeToggle } from "./theme-toggle"
-import { useUser } from "./user-provider"
 
 export default function UnauthenticatedNav() {
   const mainNav = siteConfig.mainNav

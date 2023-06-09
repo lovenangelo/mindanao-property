@@ -7,8 +7,8 @@ import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 
 import { Icons } from "./icons"
+import { useUser } from "./providers/user-provider"
 import { Button } from "./ui/button"
-import { useUser } from "./user-provider"
 
 export function SideBarNav() {
   const { isLoading, user } = useUser()

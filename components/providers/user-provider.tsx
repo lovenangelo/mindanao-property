@@ -22,24 +22,22 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
-    function saveSession(
-      session: Session | null,
-      event: AuthChangeEvent | null
-    ) {
+    function saveSession(session: Session | null) {
       const currentUser = session?.user
-      setUser(currentUser ?? null)
       setLoading(false)
+      setUser(currentUser ?? null)
     }
 
     supabase.auth
       .getSession()
-      .then(({ data: { session } }) => saveSession(session, null))
+      .then(({ data: { session } }) => saveSession(session))
 
     const { subscription } = supabase.auth.onAuthStateChange(
       async (event, session) => {
-        console.log(event)
-        setLoading(true)
-        return saveSession(session, event)
+        if (event == "SIGNED_IN" || event == "SIGNED_OUT") {
+          setLoading(true)
+          saveSession(session)
+        }
       }
     ).data
 

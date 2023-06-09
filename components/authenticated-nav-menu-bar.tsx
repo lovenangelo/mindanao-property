@@ -13,9 +13,9 @@ import {
 } from "@/components/ui/menubar"
 
 import { Icons } from "./icons"
+import { useUser } from "./providers/user-provider"
 import SignOutButton from "./sign-out-button"
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
-import { useUser } from "./user-provider"
 
 export function AuthenticatedNavMenuBar() {
   const { user, isLoading } = useUser()

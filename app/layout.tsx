@@ -4,12 +4,12 @@ import { Metadata } from "next"
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
+import { UserProvider } from "@/components/providers/user-provider"
 import { SideBarNav } from "@/components/side-bar-nav"
 import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/toast-provider"
-import { UserProvider } from "@/components/user-provider"
 
 export const metadata: Metadata = {
   title: {

@@ -1,9 +1,9 @@
 "use client"
 
 import AuthenticatedNav from "./authenticated-nav"
+import { useUser } from "./providers/user-provider"
 import { SideBarNav } from "./side-bar-nav"
 import UnauthenticatedNav from "./unauthenticated-nav"
-import { useUser } from "./user-provider"
 
 export function SiteHeader() {
   const { user, isLoading } = useUser()

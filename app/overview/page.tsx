@@ -1,7 +1,7 @@
 "use client"
 
 import OverviewLoader from "@/components/loaders/overview-loader-skeleton"
-import { useUser } from "@/components/user-provider"
+import { useUser } from "@/components/providers/user-provider"
 
 export default function DashboardPage() {
   const { isLoading, user } = useUser()
