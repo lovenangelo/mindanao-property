@@ -1,7 +1,3 @@
-// Variables
-$bar-color: #191919;
-$ball-color: #191919;
-
 .loader {
   position: relative;
   width: 75px;
@@ -12,7 +8,6 @@ $ball-color: #191919;
     bottom: 0;
     width: 10px;
     height: 50%;
-    background: $bar-color;
     transform-origin: center bottom;
     box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
 
@@ -31,7 +26,6 @@ $ball-color: #191919;
     left: 0;
     width: 10px;
     height: 10px;
-    background: $ball-color;
     border-radius: 50%;
     animation: ball 4s infinite;
   }
