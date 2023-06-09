@@ -25,7 +25,7 @@ export function SideBarNav() {
     >
       <div className={cn("relative w-full py-4 px-4 md:py-6 md:px-12")}>
         {item.title == "Account" && (
-          <div className="absolute top-2 -right-1 md:top-2 md:right-10">
+          <div className="absolute top-2 -right-1 md:right-10">
             <SideBarBadge text="complete your profile" />
           </div>
         )}
@@ -54,8 +54,9 @@ export function SideBarNav() {
             <h2 className="font-bold">{user.user_metadata.first_name}</h2>
             <p className="text-xs">{user.email}</p>
           </div>
-          <hr />
-          <div className="w-full grid grid-cols-1 row-auto gap-2">{items}</div>
+          <div className="w-full grid grid-cols-1 row-auto gap-2 md:mt-4">
+            {items}
+          </div>
         </div>
       )}
     </>
