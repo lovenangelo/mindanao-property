@@ -27,7 +27,16 @@ export function SideBarNav() {
       <div className={cn("w-full py-4 px-4 md:py-8 md:px-12")}>
         <Link className={cn("flex space-x-4")} href={item.href}>
           <item.icon />
-          <p className={cn("hidden md:block")}>{item.title}</p>
+          {item.title !== "Account" ? (
+            <p className={cn("hidden md:block")}>{item.title}</p>
+          ) : (
+            <div className="relative">
+              <div className="absolute bottom-6">
+                <SideBarBadge text="complete your profile" />
+              </div>
+              <p className={cn("hidden md:block")}>Account</p>
+            </div>
+          )}
         </Link>
       </div>
     </div>
