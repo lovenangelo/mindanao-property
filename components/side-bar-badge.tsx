@@ -2,5 +2,16 @@ import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
 
 export default function SideBarBadge({ text }: { text: string }) {
-  return <Badge className={cn("text-[8px] w-max")}>{text}</Badge>
+  return (
+    <div>
+      <Badge className={cn("text-[8px] w-max hidden md:block")}>{text}</Badge>
+      <Badge
+        className={cn(
+          "text-xs w-2 h-auto flex items-center justify-center font-semibold md:hidden"
+        )}
+      >
+        !
+      </Badge>
+    </div>
+  )
 }

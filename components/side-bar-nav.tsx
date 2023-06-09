@@ -24,19 +24,20 @@ export function SideBarNav() {
         path.includes(`/${item.title.toLowerCase()}`) && "bg-secondary"
       )}
     >
-      <div className={cn("w-full py-4 px-4 md:py-8 md:px-12")}>
-        <Link className={cn("flex space-x-4")} href={item.href}>
-          <item.icon />
-          {item.title !== "Account" ? (
-            <p className={cn("hidden md:block")}>{item.title}</p>
-          ) : (
-            <div className="relative">
-              <div className="absolute bottom-6">
-                <SideBarBadge text="complete your profile" />
-              </div>
-              <p className={cn("hidden md:block")}>Account</p>
-            </div>
+      <div className={cn("relative w-full py-4 px-4 md:py-8 md:px-12")}>
+        {item.title == "Account" && (
+          <div className="absolute top-2 -right-1 md:top-3 md:right-10">
+            <SideBarBadge text="complete your profile" />
+          </div>
+        )}
+        <Link
+          className={cn(
+            "flex space-x-4 justify-center items-center md:justify-start md:items-start"
           )}
+          href={item.href}
+        >
+          <item.icon />
+          <p className={cn("hidden md:block")}>{item.title}</p>
         </Link>
       </div>
     </div>
