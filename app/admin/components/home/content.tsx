@@ -5,9 +5,9 @@ import dynamic from 'next/dynamic';
 import {Flex} from '../styles/flex';
 import {AccountsTableWrapper} from '../table/accounts/account.table';
 import NextLink from 'next/link';
-import {CardBalance1} from './card-balance1';
-import {CardBalance2} from './card-balance2';
-import {CardBalance3} from './card-balance3';
+import {CardBalance1} from './card-traffic';
+import {CardBalance2} from './card-totalusers';
+import {CardBalance3} from './card-properties';
 import {CardAgents} from './card-agents';
 import {CardTransactions} from './card-transactions';
 
@@ -58,7 +58,7 @@ export const Content = () => (
                      },
                   }}
                >
-                  Available Balance
+                 Overview
                </Text>
                <Flex
                   css={{
@@ -77,7 +77,7 @@ export const Content = () => (
                </Flex>
             </Box>
 
-            {/* Chart */}
+            {/* Chart 1 */}
             <Box>
                <Text
                   h3
@@ -88,7 +88,34 @@ export const Content = () => (
                      },
                   }}
                >
-                  Statistics
+                  Statistics 1
+               </Text>
+               <Box
+                  css={{
+                     width: '100%',
+                     backgroundColor: '$accents0',
+                     boxShadow: '$lg',
+                     borderRadius: '$2xl',
+                     px: '$10',
+                     py: '$10',
+                  }}
+               >
+                  <Chart />
+               </Box>
+            </Box>
+
+              {/* Chart 2 */}
+              <Box>
+               <Text
+                  h3
+                  css={{
+                     'textAlign': 'center',
+                     '@lg': {
+                        textAlign: 'inherit',
+                     },
+                  }}
+               >
+                  Statistics 2
                </Text>
                <Box
                   css={{
@@ -106,7 +133,7 @@ export const Content = () => (
          </Flex>
 
          {/* Left Section */}
-         <Box
+         {/* <Box
             css={{
                'px': '$12',
                'mt': '$8',
@@ -146,10 +173,10 @@ export const Content = () => (
                <CardAgents />
                <CardTransactions />
             </Flex>
-         </Box>
+         </Box> */}
       </Flex>
 
-      {/* Table Latest Users */}
+  
       <Flex
          direction={'column'}
          justify={'center'}
@@ -173,7 +200,7 @@ export const Content = () => (
             >
                Latest Users
             </Text>
-            <NextLink href="/accounts">
+            <NextLink href="/admin/accounts">
                <Link
                   block
                   color="primary"

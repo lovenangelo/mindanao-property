@@ -1,17 +1,17 @@
-import { Button, Input, Text } from "@nextui-org/react";
-import Link from "next/link";
-import React from "react";
-import { Breadcrumbs, Crumb, CrumbLink } from "../breadcrumb/breadcrumb.styled";
-import { DotsIcon } from "../icons/accounts/dots-icon";
-import { ExportIcon } from "../icons/accounts/export-icon";
-import { InfoIcon } from "../icons/accounts/info-icon";
-import { TrashIcon } from "../icons/accounts/trash-icon";
-import { HouseIcon } from "../icons/breadcrumb/house-icon";
-import { UsersIcon } from "../icons/breadcrumb/users-icon";
-import { SettingsIcon } from "../icons/sidebar/settings-icon";
-import { Flex } from "../styles/flex";
-import { LogsTableWrapper } from '../table/logs/log.table';
+import React from "react"
+import Link from "next/link"
+import { Button, Input, Text } from "@nextui-org/react"
 
+import { Breadcrumbs, Crumb, CrumbLink } from "../breadcrumb/breadcrumb.styled"
+import { DotsIcon } from "../icons/accounts/dots-icon"
+import { ExportIcon } from "../icons/accounts/export-icon"
+import { InfoIcon } from "../icons/accounts/info-icon"
+import { TrashIcon } from "../icons/accounts/trash-icon"
+import { HouseIcon } from "../icons/breadcrumb/house-icon"
+import { UsersIcon } from "../icons/breadcrumb/users-icon"
+import { SettingsIcon } from "../icons/sidebar/settings-icon"
+import { Flex } from "../styles/flex"
+import { LogsTableWrapper } from "../table/logs/log.table"
 
 export const Logs = () => {
   return (
@@ -37,7 +37,7 @@ export const Logs = () => {
         </Crumb>
         <Crumb>
           <UsersIcon />
-            <CrumbLink href="/admin/Logs">Logs</CrumbLink>
+          <CrumbLink href="/admin/Logs">Logs</CrumbLink>
           <Text>/</Text>
         </Crumb>
       </Breadcrumbs>
@@ -66,8 +66,14 @@ export const Logs = () => {
           <InfoIcon />
           <DotsIcon />
         </Flex>
+
+        <Flex direction={"row"} wrap={"wrap"}>
+          <Button auto iconRight={<ExportIcon />}>
+            Export to CSV
+          </Button>
+        </Flex>
       </Flex>
       <LogsTableWrapper />
     </Flex>
-  );
-};
+  )
+}

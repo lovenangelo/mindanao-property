@@ -41,7 +41,7 @@ export const CardTransactions = () => {
                      Jose Perez
                   </Text>
                   <Text span css={{color: '$green600'}} size={'$xs'}>
-                     4500 USD
+                  Upgraded to Pro
                   </Text>
                   <Text span css={{color: '$accents8'}} size={'$xs'}>
                      9/20/2021
@@ -61,7 +61,7 @@ export const CardTransactions = () => {
                      Andrew Steven
                   </Text>
                   <Text span css={{color: '$green600'}} size={'$xs'}>
-                     4500 USD
+                  Upgraded to Ultimate
                   </Text>
                   <Text span css={{color: '$accents8'}} size={'$xs'}>
                      9/20/2021
@@ -80,7 +80,7 @@ export const CardTransactions = () => {
                      Ruben Garcia
                   </Text>
                   <Text span css={{color: '$green600'}} size={'$xs'}>
-                     1500 USD
+                     Upgraded to Pro
                   </Text>
                   <Text span css={{color: '$accents8'}} size={'$xs'}>
                      2/20/2022
@@ -99,7 +99,7 @@ export const CardTransactions = () => {
                      Perla Garcia
                   </Text>
                   <Text span css={{color: '$green600'}} size={'$xs'}>
-                     200 USD
+                  Upgraded to Pro
                   </Text>
                   <Text span css={{color: '$accents8'}} size={'$xs'}>
                      3/20/2022
@@ -118,7 +118,7 @@ export const CardTransactions = () => {
                      Mathew Funez
                   </Text>
                   <Text span css={{color: '$green600'}} size={'$xs'}>
-                     2444 USD
+                  Upgraded to Pro
                   </Text>
                   <Text span css={{color: '$accents8'}} size={'$xs'}>
                      5/20/2022
@@ -137,7 +137,7 @@ export const CardTransactions = () => {
                      Carlos Diaz
                   </Text>
                   <Text span css={{color: '$green600'}} size={'$xs'}>
-                     3000 USD
+                     Upgraded to Ultimate
                   </Text>
                   <Text span css={{color: '$accents8'}} size={'$xs'}>
                      12/20/2022

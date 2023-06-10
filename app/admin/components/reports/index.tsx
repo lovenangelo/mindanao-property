@@ -16,9 +16,9 @@ import {AccountsTableWrapper} from '../table/accounts/account.table';
 import {Box} from '../styles/box';
 import dynamic from 'next/dynamic';
 import {CardNewUser} from './reports.card-newusers';
-import {CardBalance2} from './reports.card-balance2';
-import {CardBalance3} from './reports.card-balance3';
-import {CardAgents} from './reports.card-agents';
+import {CardBalance2} from './reports.card-activelisting';
+import {CardBalance3} from './reports.card-subcriptionrevenue';
+import {CardAgents} from './reports.card-latestsubs';
 import {CardTransactions} from './reports.card-transactions';
 import NextLink from 'next/link';
 
@@ -62,8 +62,20 @@ export const Reports = () => {
          </Breadcrumbs>
 
          <Text h3>Reports</Text>
-        
       </Flex>
+      {/* Export button */}
+      <Flex
+            css={{gap: '$8'}}
+            justify={'end'}
+            wrap={'wrap'}
+         >
+           
+            <Flex direction={'row'} css={{mr: '$12'}} wrap={'wrap'}>
+               <Button auto iconRight={<ExportIcon />}>
+                  Export to CSV
+               </Button>
+            </Flex>
+         </Flex>
        <Flex
           css={{
              'gap': '$8',
@@ -90,6 +102,7 @@ export const Reports = () => {
           >
              {/* Card Section Top */}
              <Box>
+               
                 <Text
                    h3
                    css={{
