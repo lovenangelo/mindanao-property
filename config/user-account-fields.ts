@@ -1,4 +1,11 @@
-export const userAccountFields = [
+type AccountFields = {
+  name: string
+  label: string
+  type: string
+  htmlFor: string
+}
+
+export const userAccountFields: AccountFields[] = [
   {
     name: "firstName",
     label: "First name",
@@ -18,15 +25,15 @@ export const userAccountFields = [
     htmlFor: "userName",
   },
   {
-    name: "About",
-    label: "About",
+    name: "Bio",
+    label: "Bio",
     type: "text",
-    htmlFor: "About",
+    htmlFor: "Bio",
   },
   {
     name: "contact",
     label: "Contact",
-    type: "text",
+    type: "number",
     htmlFor: "contact",
   },
   {

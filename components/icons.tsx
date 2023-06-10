@@ -10,6 +10,7 @@ import {
   Menu,
   MessageCircleIcon,
   Moon,
+  Pencil,
   Settings,
   SunMedium,
   Twitter,
@@ -34,6 +35,7 @@ export const Icons = {
   analytics: BarChart2,
   account: UserIcon,
   settings: Settings,
+  edit: Pencil,
   logo: (props: LucideProps) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>
       <path
