@@ -29,7 +29,7 @@ export const CardNewUser = () => {
                   </Text> */}
                </Flex>
             </Flex>
-            <Flex css={{gap: '$6', py: '$4', px: '$14'}} align={'center'}>
+            <Flex css={{gap: '$6', py: '$4', px: '$12'}} align={'center'}>
                <Text
                   span
                   size={'$xl'}
@@ -42,7 +42,7 @@ export const CardNewUser = () => {
                   + 4.5%
                </Text>
             </Flex>
-            <Flex css={{gap: '$12'}} align={'center'}>
+            <Flex css={{gap: '$10'}} align={'center'}>
                <Box>
                   <Text
                      span
@@ -79,7 +79,7 @@ export const CardNewUser = () => {
                      {'⭐'}
                   </Text>
                   <Text span size={'$xs'} css={{color: '$white'}}>
-                     125 <br />Subcribed
+                     125 <br />Subscribed
                   </Text>
                </Box>
             </Flex>
