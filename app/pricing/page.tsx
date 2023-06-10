@@ -1,6 +1,7 @@
 "use client";
 
 import Pricing from "../components/Pricing";
+import { IconCheck } from "@tabler/icons-react";
 
 const PricingPage = () => {
   return (
@@ -9,26 +10,17 @@ const PricingPage = () => {
       <Pricing />
 
       <div className="flex flex-col justify-center items-center h-[100vh]">
-        <div className="relative flex flex-col items-center rounded-[20px] w-[700px] max-w-[95%] mx-auto bg-white bg-clip-border shadow-3xl shadow-shadow-500 dark:!bg-navy-800 dark:text-white dark:!shadow-none p-3">
+        <div className="relative flex flex-col items-center rounded-[20px] w-[700px] mx-auto bg-white bg-clip-border shadow-3xl shadow-shadow-500 dark:!bg-navy-800 dark:!shadow-none p-3">
           
-          <div className="mt-2 mb-8 w-full">
-            <h4 className="px-2 text-xl font-bold text-navy-700 dark:text-white">
+          <div className="mt-2 mb-8 w-full min-w-100">
+            <h4 className="px-2 text-xl font-bold text-navy-700">
               Listing per Month
             </h4>
             <ul>
               <li className="mt-2 px-2 text-base text-gray-600 ml-8 flex items-center">
                 <div className="bg-green-200 rounded-full p-1 fill-current text-green-700">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-check min-w-5" 
-                    width="15" height="15" 
-                    viewBox="0 0 24 24" 
-                    stroke-width="2" 
-                    stroke="currentColor" 
-                    fill="none" 
-                    stroke-linecap="round" 
-                    stroke-linejoin="round">
-                      <path stroke="none"d="M0 0h24v24H0z"fill="none"></path>
-                      <path d="M5 12l5 5l10 -10"></path>
-                  </svg>
+                  <IconCheck 
+                    width={15} height={15}/>
                 </div>
                 <span className="text-gray-700 text-sm ml-3">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. 
@@ -36,18 +28,9 @@ const PricingPage = () => {
               </li>
               <li className="mt-2 px-2 text-base text-gray-600 ml-8 flex items-center">
               <div className="bg-green-200 rounded-full p-1 fill-current text-green-700">
-                  <svg xmlns="http://www.w3.org/2000/svg" 
-                    className="icon icon-tabler icon-tabler-check min-w-5" 
-                    width="15" height="15" 
-                    viewBox="0 0 24 24" 
-                    stroke-width="2" 
-                    stroke="currentColor" 
-                    fill="none" 
-                    stroke-linecap="round" 
-                    stroke-linejoin="round">
-                      <path stroke="none"d="M0 0h24v24H0z" fill="none"></path>
-                      <path d="M5 12l5 5l10 -10"></path>
-                  </svg>
+                  <IconCheck 
+                    width={15} height={15}
+                  />
                 </div>
                 <span className="text-gray-700 text-sm ml-3">
                   omnis earum nemo minus pariatur cupiditate facilis?
@@ -57,23 +40,15 @@ const PricingPage = () => {
           </div>
 
           <div className="mt-2 mb-8 w-full">
-            <h4 className="px-2 text-xl font-bold text-navy-700 dark:text-white">
+            <h4 className="px-2 text-xl font-bold text-navy-700">
               Lead Credits per Month
             </h4>
             <ul>
               <li className="mt-2 px-2 text-base text-gray-600 ml-8 flex items-center">
                 <div className="bg-green-200 rounded-full p-1 fill-current text-green-700">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-check min-w-5" 
-                    width="15" height="15" 
-                    viewBox="0 0 24 24" 
-                    stroke-width="2" 
-                    stroke="currentColor" 
-                    fill="none" 
-                    stroke-linecap="round" 
-                    stroke-linejoin="round">
-                      <path stroke="none"d="M0 0h24v24H0z"fill="none"></path>
-                      <path d="M5 12l5 5l10 -10"></path>
-                  </svg>
+                  <IconCheck 
+                    width={15} height={15}
+                  />
                 </div>
                 <span className="text-gray-700 text-sm ml-3">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. 
@@ -81,18 +56,9 @@ const PricingPage = () => {
               </li>
               <li className="mt-2 px-2 text-base text-gray-600 ml-8 flex items-center">
               <div className="bg-green-200 rounded-full p-1 fill-current text-green-700">
-                  <svg xmlns="http://www.w3.org/2000/svg" 
-                    className="icon icon-tabler icon-tabler-check min-w-5" 
-                    width="15" height="15" 
-                    viewBox="0 0 24 24" 
-                    stroke-width="2" 
-                    stroke="currentColor" 
-                    fill="none" 
-                    stroke-linecap="round" 
-                    stroke-linejoin="round">
-                      <path stroke="none"d="M0 0h24v24H0z" fill="none"></path>
-                      <path d="M5 12l5 5l10 -10"></path>
-                  </svg>
+                  <IconCheck 
+                      width={15} height={15}
+                    />
                 </div>
                 <span className="text-gray-700 text-sm ml-3">
                   omnis earum nemo minus pariatur cupiditate facilis?
@@ -100,18 +66,9 @@ const PricingPage = () => {
               </li>
               <li className="mt-2 px-2 text-base text-gray-600 ml-8 flex items-center">
               <div className="bg-green-200 rounded-full p-1 fill-current text-green-700">
-                  <svg xmlns="http://www.w3.org/2000/svg" 
-                    className="icon icon-tabler icon-tabler-check min-w-5" 
-                    width="15" height="15" 
-                    viewBox="0 0 24 24" 
-                    stroke-width="2" 
-                    stroke="currentColor" 
-                    fill="none" 
-                    stroke-linecap="round" 
-                    stroke-linejoin="round">
-                      <path stroke="none"d="M0 0h24v24H0z" fill="none"></path>
-                      <path d="M5 12l5 5l10 -10"></path>
-                  </svg>
+                  <IconCheck 
+                    width={15} height={15}
+                  />
                 </div>
                 <span className="text-gray-700 text-sm ml-3">
                  facere fugit tenetur itaque deserunt neque magnam dolor nihil,
@@ -119,18 +76,9 @@ const PricingPage = () => {
               </li>
               <li className="mt-2 px-2 text-base text-gray-600 ml-8 flex items-center">
               <div className="bg-green-200 rounded-full p-1 fill-current text-green-700">
-                  <svg xmlns="http://www.w3.org/2000/svg" 
-                    className="icon icon-tabler icon-tabler-check min-w-5" 
-                    width="15" height="15" 
-                    viewBox="0 0 24 24" 
-                    stroke-width="2" 
-                    stroke="currentColor" 
-                    fill="none" 
-                    stroke-linecap="round" 
-                    stroke-linejoin="round">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                      <path d="M5 12l5 5l10 -10"></path>
-                  </svg>
+                  <IconCheck 
+                    width={15} height={15}
+                  />
                 </div>
                 <span className="text-gray-700 text-sm ml-3">
                   Similique cum eligendi dolorem eaque amet,
@@ -140,23 +88,15 @@ const PricingPage = () => {
           </div>
 
           <div className="mt-2 mb-8 w-full">
-            <h4 className="px-2 text-xl font-bold text-navy-700 dark:text-white">
+            <h4 className="px-2 text-xl font-bold text-navy-700">
               Access to Leads
             </h4>
             <ul>
               <li className="mt-2 px-2 text-base text-gray-600 ml-8 flex items-center">
                 <div className="bg-green-200 rounded-full p-1 fill-current text-green-700">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-check min-w-5" 
-                    width="15" height="15" 
-                    viewBox="0 0 24 24" 
-                    stroke-width="2" 
-                    stroke="currentColor" 
-                    fill="none" 
-                    stroke-linecap="round" 
-                    stroke-linejoin="round">
-                      <path stroke="none"d="M0 0h24v24H0z"fill="none"></path>
-                      <path d="M5 12l5 5l10 -10"></path>
-                  </svg>
+                  <IconCheck 
+                    width={15} height={15}
+                  />
                 </div>
                 <span className="text-gray-700 text-sm ml-3">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. 
@@ -164,18 +104,9 @@ const PricingPage = () => {
               </li>
               <li className="mt-2 px-2 text-base text-gray-600 ml-8 flex items-center">
               <div className="bg-green-200 rounded-full p-1 fill-current text-green-700">
-                  <svg xmlns="http://www.w3.org/2000/svg" 
-                    className="icon icon-tabler icon-tabler-check min-w-5" 
-                    width="15" height="15" 
-                    viewBox="0 0 24 24" 
-                    stroke-width="2" 
-                    stroke="currentColor" 
-                    fill="none" 
-                    stroke-linecap="round" 
-                    stroke-linejoin="round">
-                      <path stroke="none"d="M0 0h24v24H0z" fill="none"></path>
-                      <path d="M5 12l5 5l10 -10"></path>
-                  </svg>
+                  <IconCheck 
+                    width={15} height={15}
+                  />
                 </div>
                 <span className="text-gray-700 text-sm ml-3">
                   omnis earum nemo minus pariatur cupiditate facilis?
@@ -183,18 +114,9 @@ const PricingPage = () => {
               </li>
               <li className="mt-2 px-2 text-base text-gray-600 ml-8 flex items-center">
               <div className="bg-green-200 rounded-full p-1 fill-current text-green-700">
-                  <svg xmlns="http://www.w3.org/2000/svg" 
-                    className="icon icon-tabler icon-tabler-check min-w-5" 
-                    width="15" height="15" 
-                    viewBox="0 0 24 24" 
-                    stroke-width="2" 
-                    stroke="currentColor" 
-                    fill="none" 
-                    stroke-linecap="round" 
-                    stroke-linejoin="round">
-                      <path stroke="none"d="M0 0h24v24H0z" fill="none"></path>
-                      <path d="M5 12l5 5l10 -10"></path>
-                  </svg>
+                  <IconCheck 
+                    width={15} height={15}
+                  />
                 </div>
                 <span className="text-gray-700 text-sm ml-3">
                  facere fugit tenetur itaque deserunt neque magnam dolor nihil,
@@ -202,18 +124,9 @@ const PricingPage = () => {
               </li>
               <li className="mt-2 px-2 text-base text-gray-600 ml-8 flex items-center">
               <div className="bg-green-200 rounded-full p-1 fill-current text-green-700">
-                  <svg xmlns="http://www.w3.org/2000/svg" 
-                    className="icon icon-tabler icon-tabler-check min-w-5" 
-                    width="15" height="15" 
-                    viewBox="0 0 24 24" 
-                    stroke-width="2" 
-                    stroke="currentColor" 
-                    fill="none" 
-                    stroke-linecap="round" 
-                    stroke-linejoin="round">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                      <path d="M5 12l5 5l10 -10"></path>
-                  </svg>
+                  <IconCheck 
+                    width={15} height={15}
+                  />
                 </div>
                 <span className="text-gray-700 text-sm ml-3">
                   Similique cum eligendi dolorem eaque amet,
@@ -223,23 +136,15 @@ const PricingPage = () => {
           </div>
 
           <div className="mt-2 mb-8 w-full">
-            <h4 className="px-2 text-xl font-bold text-navy-700 dark:text-white">
+            <h4 className="px-2 text-xl font-bold text-navy-700">
               Priority Listing
             </h4>
             <ul>
               <li className="mt-2 px-2 text-base text-gray-600 ml-8 flex items-center">
                 <div className="bg-green-200 rounded-full p-1 fill-current text-green-700">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-check min-w-5" 
-                    width="15" height="15" 
-                    viewBox="0 0 24 24" 
-                    stroke-width="2" 
-                    stroke="currentColor" 
-                    fill="none" 
-                    stroke-linecap="round" 
-                    stroke-linejoin="round">
-                      <path stroke="none"d="M0 0h24v24H0z"fill="none"></path>
-                      <path d="M5 12l5 5l10 -10"></path>
-                  </svg>
+                  <IconCheck 
+                    width={15} height={15}
+                  />
                 </div>
                 <span className="text-gray-700 text-sm ml-3">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. 
@@ -247,18 +152,9 @@ const PricingPage = () => {
               </li>
               <li className="mt-2 px-2 text-base text-gray-600 ml-8 flex items-center">
               <div className="bg-green-200 rounded-full p-1 fill-current text-green-700">
-                  <svg xmlns="http://www.w3.org/2000/svg" 
-                    className="icon icon-tabler icon-tabler-check min-w-5" 
-                    width="15" height="15" 
-                    viewBox="0 0 24 24" 
-                    stroke-width="2" 
-                    stroke="currentColor" 
-                    fill="none" 
-                    stroke-linecap="round" 
-                    stroke-linejoin="round">
-                      <path stroke="none"d="M0 0h24v24H0z" fill="none"></path>
-                      <path d="M5 12l5 5l10 -10"></path>
-                  </svg>
+                  <IconCheck 
+                    width={15} height={15}
+                  />
                 </div>
                 <span className="text-gray-700 text-sm ml-3">
                   omnis earum nemo minus pariatur cupiditate facilis?
@@ -266,18 +162,9 @@ const PricingPage = () => {
               </li>
               <li className="mt-2 px-2 text-base text-gray-600 ml-8 flex items-center">
               <div className="bg-green-200 rounded-full p-1 fill-current text-green-700">
-                  <svg xmlns="http://www.w3.org/2000/svg" 
-                    className="icon icon-tabler icon-tabler-check min-w-5" 
-                    width="15" height="15" 
-                    viewBox="0 0 24 24" 
-                    stroke-width="2" 
-                    stroke="currentColor" 
-                    fill="none" 
-                    stroke-linecap="round" 
-                    stroke-linejoin="round">
-                      <path stroke="none"d="M0 0h24v24H0z" fill="none"></path>
-                      <path d="M5 12l5 5l10 -10"></path>
-                  </svg>
+                  <IconCheck 
+                    width={15} height={15}
+                  />
                 </div>
                 <span className="text-gray-700 text-sm ml-3">
                  facere fugit tenetur itaque deserunt neque magnam dolor nihil,
@@ -285,18 +172,9 @@ const PricingPage = () => {
               </li>
               <li className="mt-2 px-2 text-base text-gray-600 ml-8 flex items-center">
               <div className="bg-green-200 rounded-full p-1 fill-current text-green-700">
-                  <svg xmlns="http://www.w3.org/2000/svg" 
-                    className="icon icon-tabler icon-tabler-check min-w-5" 
-                    width="15" height="15" 
-                    viewBox="0 0 24 24" 
-                    stroke-width="2" 
-                    stroke="currentColor" 
-                    fill="none" 
-                    stroke-linecap="round" 
-                    stroke-linejoin="round">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                      <path d="M5 12l5 5l10 -10"></path>
-                  </svg>
+                  <IconCheck 
+                    width={15} height={15}
+                  />
                 </div>
                 <span className="text-gray-700 text-sm ml-3">
                   Similique cum eligendi dolorem eaque amet,
@@ -304,18 +182,9 @@ const PricingPage = () => {
               </li>
               <li className="mt-2 px-2 text-base text-gray-600 ml-8 flex items-center">
               <div className="bg-green-200 rounded-full p-1 fill-current text-green-700">
-                  <svg xmlns="http://www.w3.org/2000/svg" 
-                    className="icon icon-tabler icon-tabler-check min-w-5" 
-                    width="15" height="15" 
-                    viewBox="0 0 24 24" 
-                    stroke-width="2" 
-                    stroke="currentColor" 
-                    fill="none" 
-                    stroke-linecap="round" 
-                    stroke-linejoin="round">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                      <path d="M5 12l5 5l10 -10"></path>
-                  </svg>
+                  <IconCheck 
+                    width={15} height={15}
+                  />
                 </div>
                 <span className="text-gray-700 text-sm ml-3">
                   Similique cum eligendi dolorem eaque amet,
