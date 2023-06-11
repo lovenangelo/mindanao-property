@@ -61,8 +61,6 @@ export default function AccountPage() {
         birthDate: profiles?.date_of_birth?.slice(0, 10) ?? "",
         address: profiles?.address ?? "",
       })
-
-      // setUserProfileValues({firstName:})
     }
 
     getUserProfile()
@@ -122,13 +120,18 @@ export default function AccountPage() {
                   : parseInt(fieldDefaultVal)
                 : fieldDefaultVal
             }
-            className="appearance-none"
+            className={cn(
+              !allowedEdit && "focus-visible:ring-0",
+              "appearance-none"
+            )}
             type={item.type}
             id={item.name}
           />
         )}
         {item.name == "bio" && (
           <Textarea
+            className={cn(!allowedEdit && "focus-visible:ring-0")}
+            readOnly={!allowedEdit}
             onChange={(e) => changeHandler(e, item)}
             value={fieldDefaultVal}
             placeholder="Type your bio here."
