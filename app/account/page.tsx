@@ -1,6 +1,6 @@
 "use client"
 
-import { ChangeEvent, useState } from "react"
+import { ChangeEvent, useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
@@ -8,7 +8,7 @@ import * as z from "zod"
 
 import { AccountFields, UserProfile } from "@/types/account"
 import { userAccountFields } from "@/config/user-account-fields"
-import { cn } from "@/lib/utils"
+import { cn, supabase } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
   Form,
@@ -27,6 +27,7 @@ import { useUser } from "@/components/providers/user-provider"
 import UserAvatar from "@/components/user-avatar"
 
 export default function AccountPage() {
+  const router = useRouter()
   const { user } = useUser()
   const [userProfileValues, setUserProfileValues] = useState<UserProfile>({
     firstName: user?.user_metadata.first_name,
@@ -38,7 +39,58 @@ export default function AccountPage() {
     address: "",
   })
 
+  useEffect(() => {
+    const getUserProfile = async () => {
+      let { data: profiles, error } = await supabase
+        .from("profiles")
+        .select("*")
+        .eq("user_id", user!.id)
+
+      if (error) {
+        console.log(error.message)
+      }
+    }
+
+    getUserProfile()
+  }, [])
+
   const [allowedEdit, setAllowedEdit] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+
+  const handleSave = async () => {
+    const values = {
+      first_name: userProfileValues.firstName,
+      last_name: userProfileValues.lastName,
+      username: userProfileValues.userName,
+      bio: userProfileValues.bio,
+      contact: parseInt(userProfileValues.contact!),
+      date_of_birth: userProfileValues.birthDate!,
+      address: userProfileValues.address,
+      user_id: user!.id,
+    }
+
+    setIsLoading(true)
+
+    const { data, error } = await supabase.from("profiles").insert([values])
+
+    setIsLoading(false)
+
+    if (error) {
+      console.log(error)
+
+      toast({
+        title: "Error",
+        description: error.message,
+      })
+    } else {
+      toast({
+        title: "Success!",
+        description: "Profile saved!",
+      })
+      setAllowedEdit(false)
+      router.refresh()
+    }
+  }
 
   const items = userAccountFields.map((item, index) => {
     const fieldDefaultVal = userProfileValues[item.name as keyof UserProfile]
@@ -77,8 +129,9 @@ export default function AccountPage() {
       <div className="grid row-auto h-full w-full max-w-lg items-center gap-2">
         <div className="flex justify-between items-center">
           <h2 className="font-semibold">My Profile</h2>
-          {!allowedEdit && (
+          {!allowedEdit ? (
             <Button
+              disabled={isLoading}
               onClick={() => setAllowedEdit(true)}
               variant={"ghost"}
               className={cn("flex space-x-2 text-blue-500 hover:text-blue-800")}
@@ -86,23 +139,38 @@ export default function AccountPage() {
               <p className="text-blue">Edit</p>
               <Icons.edit className="h-4 w-4" />
             </Button>
+          ) : (
+            <Button
+              disabled={isLoading}
+              onClick={() => setAllowedEdit(false)}
+              variant={"ghost"}
+              className={cn("text-red-500 hover:text-red-800")}
+            >
+              Cancel
+            </Button>
           )}
         </div>
-        <div className="w-full flex justify-center items-center space-x-2 mt-4">
+        <div className="w-full flex items-center space-x-2 mt-4">
           <UserAvatar height="h-20" width="w-20" />
           <Button size={"sm"} variant={"outline"}>
             Change photo
           </Button>
         </div>
         <div className="h-full w-full max-w-lg mt-4">{items}</div>
-        <Button
-          onClick={() => {
-            setAllowedEdit(false)
-          }}
-          className={cn("mt-2")}
-        >
-          Save
-        </Button>
+        {allowedEdit && (
+          <Button
+            disabled={isLoading}
+            onClick={() => {
+              handleSave()
+            }}
+            className={cn("mt-2")}
+          >
+            {isLoading && (
+              <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
+            )}
+            Save
+          </Button>
+        )}
       </div>
     </div>
   )
@@ -112,9 +180,9 @@ export default function AccountPage() {
     item: AccountFields
   ) {
     const temp = { ...userProfileValues }
-    temp[item.name as keyof UserProfile] = e.currentTarget.value
     console.log(temp)
 
+    temp[item.name as keyof UserProfile] = e.currentTarget.value
     setUserProfileValues(temp)
   }
 }

@@ -5,7 +5,6 @@ export type AccountFields = {
   htmlFor: string
 }
 
-
 export type UserProfile = {
   firstName: string
   lastName: string

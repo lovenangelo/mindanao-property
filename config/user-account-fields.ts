@@ -26,16 +26,16 @@ export const userAccountFields: AccountFields[] = [
     htmlFor: "bio",
   },
   {
-    name: "contact",
-    label: "Contact",
-    type: "number",
-    htmlFor: "contact",
-  },
-  {
     name: "birthDate",
     label: "Birth Date",
     type: "date",
     htmlFor: "birthDate",
+  },
+  {
+    name: "contact",
+    label: "Contact",
+    type: "number",
+    htmlFor: "contact",
   },
   {
     name: "address",
