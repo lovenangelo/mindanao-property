@@ -1,9 +1,4 @@
-type AccountFields = {
-  name: string
-  label: string
-  type: string
-  htmlFor: string
-}
+import { AccountFields } from "@/types/account"
 
 export const userAccountFields: AccountFields[] = [
   {
@@ -25,10 +20,10 @@ export const userAccountFields: AccountFields[] = [
     htmlFor: "userName",
   },
   {
-    name: "Bio",
+    name: "bio",
     label: "Bio",
     type: "text",
-    htmlFor: "Bio",
+    htmlFor: "bio",
   },
   {
     name: "contact",
@@ -43,7 +38,7 @@ export const userAccountFields: AccountFields[] = [
     htmlFor: "birthDate",
   },
   {
-    name: "Address",
+    name: "address",
     label: "Address",
     type: "text",
     htmlFor: "address",

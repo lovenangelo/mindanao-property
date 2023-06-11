@@ -61,7 +61,7 @@ export const siteConfig = {
       icon: Icons.notification,
     },
     {
-      title: "Message",
+      title: "Chat",
       href: "/message",
       disabled: false,
       icon: Icons.chat,
