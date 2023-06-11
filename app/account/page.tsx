@@ -83,7 +83,7 @@ export default function AccountPage() {
 
     setIsLoading(true)
 
-    const { data, error } = await supabase.from("profiles").insert([values])
+    const { error } = await supabase.from("profiles").upsert([values])
 
     setIsLoading(false)
 
