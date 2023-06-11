@@ -45,10 +45,24 @@ export default function AccountPage() {
         .from("profiles")
         .select("*")
         .eq("user_id", user!.id)
+        .single()
 
       if (error) {
         console.log(error.message)
       }
+
+      console.log(profiles)
+      setUserProfileValues({
+        firstName: profiles?.first_name ?? "",
+        lastName: profiles?.last_name ?? "",
+        userName: profiles?.username ?? "",
+        bio: profiles?.bio ?? "",
+        contact: profiles?.contact ? profiles?.contact?.toString() : "",
+        birthDate: profiles?.date_of_birth?.slice(0, 10) ?? "",
+        address: profiles?.address ?? "",
+      })
+
+      // setUserProfileValues({firstName:})
     }
 
     getUserProfile()
@@ -180,8 +194,6 @@ export default function AccountPage() {
     item: AccountFields
   ) {
     const temp = { ...userProfileValues }
-    console.log(temp)
-
     temp[item.name as keyof UserProfile] = e.currentTarget.value
     setUserProfileValues(temp)
   }
