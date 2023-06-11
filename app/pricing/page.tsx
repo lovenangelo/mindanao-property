@@ -2,7 +2,7 @@
 
 import { Icons } from "@/components/icons"
 
-import Pricing from "../components/Pricing"
+import Pricing from "../../components/pricing-cards"
 
 const PricingPage = () => {
   return (
