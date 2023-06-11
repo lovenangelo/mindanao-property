@@ -43,7 +43,7 @@ export function SideBarNav() {
   ))
 
   if (!isLoading && !user) {
-    return <></>
+    return <div></div>
   }
 
   return (
