@@ -1,14 +1,27 @@
 "use client"
 
 import { ChangeEvent, useState } from "react"
+import { useRouter } from "next/navigation"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import * as z from "zod"
 
 import { AccountFields, UserProfile } from "@/types/account"
 import { userAccountFields } from "@/config/user-account-fields"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
+import { toast } from "@/components/ui/use-toast"
 import { Icons } from "@/components/icons"
 import { useUser } from "@/components/providers/user-provider"
 import UserAvatar from "@/components/user-avatar"
@@ -38,7 +51,9 @@ export default function AccountPage() {
             readOnly={!allowedEdit}
             value={
               item.name == "contact"
-                ? parseInt(fieldDefaultVal)
+                ? fieldDefaultVal == ""
+                  ? ""
+                  : parseInt(fieldDefaultVal)
                 : fieldDefaultVal
             }
             className="appearance-none"
