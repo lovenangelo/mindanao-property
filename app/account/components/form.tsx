@@ -1,5 +1,7 @@
-import { Dispatch, SetStateAction, useState } from "react"
+import { Dispatch, SetStateAction, useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
+import { useAppSelector } from "@/redux/hooks"
+import { selectProfile } from "@/redux/slices/user-profile-slice"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
@@ -40,7 +42,8 @@ const formSchema = z.object({
     .regex(/^\w+$/),
   contact: z
     .string()
-    .max(10, { message: "Contact number must not exceed 10 digits" }),
+    .max(10, { message: "Contact number must not exceed 10 digits" })
+    .or(z.number()),
   date_of_birth: z.string(),
   address: z
     .string()
@@ -57,19 +60,21 @@ export default function AccountForm({
   isLoading: boolean
   setIsLoading: Dispatch<SetStateAction<boolean>>
 }) {
+  const profile = useAppSelector(selectProfile)
+
+  const [defaultValues, setDefaultValues] = useState(profile)
+
   const router = useRouter()
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      first_name: "",
-      last_name: "",
-      username: "",
-      contact: "",
-      date_of_birth: "",
-      address: "",
-      bio: "",
-    },
+    defaultValues: defaultValues,
   })
+
+  useEffect(() => {
+    setDefaultValues(profile)
+    console.log(profile)
+  }, [profile])
 
   return (
     <Form {...form}>
@@ -79,12 +84,12 @@ export default function AccountForm({
           console.log(values)
         })}
       >
-        <div className="md:flex-row flex flex-col md:gap-2">
+        <div className="md:flex-row flex flex-col md:gap-2 w-full">
           <FormField
             control={form.control}
             name="first_name"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="w-full">
                 <FormLabel>{"First name"}</FormLabel>
                 <FormControl>
                   <Input
@@ -93,7 +98,7 @@ export default function AccountForm({
                     readOnly={!allowedEdit}
                     className={cn(
                       !allowedEdit && "focus-visible:ring-0",
-                      "appearance-none"
+                      "appearance-none w-full"
                     )}
                     type="text"
                     disabled={isLoading}
@@ -108,7 +113,7 @@ export default function AccountForm({
             control={form.control}
             name="last_name"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="w-full">
                 <FormLabel>{"Last name"}</FormLabel>
                 <FormControl>
                   <Input
@@ -117,7 +122,7 @@ export default function AccountForm({
                     readOnly={!allowedEdit}
                     className={cn(
                       !allowedEdit && "focus-visible:ring-0",
-                      "appearance-none"
+                      "appearance-none w-full"
                     )}
                     type="text"
                     disabled={isLoading}

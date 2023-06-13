@@ -4,7 +4,15 @@ import { HYDRATE } from "next-redux-wrapper"
 
 import { Database } from "@/types/supabase"
 
-type profile = Database["public"]["Tables"]["profiles"]["Row"]
+type profile = {
+  first_name: string
+  last_name: string
+  username: string
+  contact: string | number
+  date_of_birth: string
+  bio: string
+  address: string
+}
 
 // Define a type for the slice state
 interface ProfileState {
@@ -14,25 +22,20 @@ interface ProfileState {
 // Define the initial state using that type
 const initialState: ProfileState = {
   value: {
-    address: null,
-    bio: null,
+    address: "",
+    bio: "",
     contact: 0,
-    created_at: null,
-    date_of_birth: null,
+    date_of_birth: "",
     first_name: "",
     last_name: "",
-    updated_at: null,
-    user_id: "",
-    username: null,
+    username: "",
   },
 }
 
 export const userProfileSlice = createSlice({
   name: "profile",
-  // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
-    // Use the PayloadAction type to declare the contents of `action.payload`
     updateProfile: (state, action: PayloadAction<profile>) => {
       state.value = action.payload
     },
@@ -48,5 +51,5 @@ export const userProfileSlice = createSlice({
 })
 
 export const { updateProfile } = userProfileSlice.actions
-
+export const selectProfile = (state: RootState) => state.profile.value
 export default userProfileSlice.reducer

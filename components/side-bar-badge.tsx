@@ -1,6 +1,8 @@
 "use client"
 
 import { useCallback, useEffect, useState } from "react"
+import { useAppDispatch } from "@/redux/hooks"
+import { updateProfile } from "@/redux/slices/user-profile-slice"
 import { User } from "@supabase/auth-helpers-nextjs"
 
 import { cn, supabase } from "@/lib/utils"
@@ -15,6 +17,7 @@ export default function SideBarBadge({
 }) {
   const [loading, setLoading] = useState(false)
   const [showBadge, setShowBadge] = useState(false)
+  const dispatch = useAppDispatch()
 
   const getProfile = useCallback(async () => {
     try {
@@ -32,6 +35,17 @@ export default function SideBarBadge({
         throw error
       }
       if (data) {
+        console.log(data)
+        const values = {
+          address: data.address ?? "",
+          bio: data.bio ?? "",
+          contact: data.contact ?? "",
+          date_of_birth: data.date_of_birth ?? "",
+          first_name: data.first_name ?? "",
+          last_name: data.last_name ?? "",
+          username: data.username ?? "",
+        }
+        dispatch(updateProfile(values))
         setShowBadge(false)
       }
     } catch (error) {
@@ -39,7 +53,7 @@ export default function SideBarBadge({
     } finally {
       setLoading(false)
     }
-  }, [user, supabase])
+  }, [user])
 
   useEffect(() => {
     getProfile()
