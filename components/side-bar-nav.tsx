@@ -26,7 +26,7 @@ export function SideBarNav() {
       <div className={cn("relative w-full py-4 px-4 md:py-6 md:px-12")}>
         {item.title == "Account" && (
           <div className="absolute top-2 -right-1 md:right-10">
-            <SideBarBadge text="complete your profile" />
+            <SideBarBadge user={user} text="complete your profile" />
           </div>
         )}
         <Link

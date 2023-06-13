@@ -28,7 +28,7 @@ export function AuthenticatedNavMenuBar() {
     <Menubar className={cn("rounded-full border-0 p-0")}>
       <MenubarMenu>
         <MenubarTrigger className={cn("cursor-pointer rounded-full px-0 py-0")}>
-          <UserAvatar />
+          <UserAvatar height={null} width={null} />
         </MenubarTrigger>
         <MenubarContent>
           <MenubarItem
