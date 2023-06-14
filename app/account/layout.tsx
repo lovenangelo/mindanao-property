@@ -1,7 +1,5 @@
 "use client"
 
-import { ScrollArea } from "@radix-ui/react-scroll-area"
-
 import MainLoader from "@/components/loaders/main-loader"
 import { useUser } from "@/components/providers/user-provider"
 

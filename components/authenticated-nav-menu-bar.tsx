@@ -19,7 +19,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 import UserAvatar from "./user-avatar"
 
 export function AuthenticatedNavMenuBar() {
-  const { isLoading } = useUser()
+  const { isLoading, user } = useUser()
 
   const list = siteConfig.authNav
   const signUpConfig = list[0]
@@ -28,7 +28,7 @@ export function AuthenticatedNavMenuBar() {
     <Menubar className={cn("rounded-full border-0 p-0")}>
       <MenubarMenu>
         <MenubarTrigger className={cn("cursor-pointer rounded-full px-0 py-0")}>
-          <UserAvatar />
+          <UserAvatar src={"/"} height={null} width={null} />
         </MenubarTrigger>
         <MenubarContent>
           <MenubarItem
