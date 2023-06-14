@@ -105,11 +105,11 @@ export default function AccountForm({
       toast({
         description: "Successfully updated your profile",
       })
+      setAllowedEdit(false)
       router.refresh()
     }
 
     setIsLoading(false)
-    setAllowedEdit(false)
   }
 
   return (
@@ -120,7 +120,7 @@ export default function AccountForm({
           const newProfile = {
             ...values,
             contact: parseInt(values.contact),
-            user_id: profile.user_id,
+            user_id: profile?.user_id.length == 0 ? user.id : profile.user_id,
           }
           handleSave(newProfile)
         })}

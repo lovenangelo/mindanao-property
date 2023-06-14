@@ -20,41 +20,38 @@ export default function SideBarBadge({
   const dispatch = useAppDispatch()
 
   const getProfile = useCallback(async () => {
-    try {
-      setLoading(true)
+    setLoading(true)
 
-      let { data, error, status } = await supabase
-        .from("profiles")
-        .select("*")
-        .eq("user_id", user?.id)
-        .single()
+    let { data, error, status } = await supabase
+      .from("profiles")
+      .select("*")
+      .eq("user_id", user?.id)
+      .single()
 
-      if (error && status !== 406) {
-        throw error
+    if (data) {
+      console.log(data)
+      const values = {
+        address: data.address ?? "",
+        bio: data.bio ?? "",
+        contact: data.contact?.toString() ?? "",
+        date_of_birth: data.date_of_birth ?? "",
+        first_name: data.first_name ?? "",
+        last_name: data.last_name ?? "",
+        username: data.username ?? "",
+        created_at: data.created_at ?? "",
+        updated_at: data.updated_at ?? "",
+        user_id: data.user_id ?? "",
       }
-      if (data) {
-        console.log(data)
-        const values = {
-          address: data.address ?? "",
-          bio: data.bio ?? "",
-          contact: data.contact?.toString() ?? "",
-          date_of_birth: data.date_of_birth ?? "",
-          first_name: data.first_name ?? "",
-          last_name: data.last_name ?? "",
-          username: data.username ?? "",
-          created_at: data.created_at ?? "",
-          updated_at: data.updated_at ?? "",
-          user_id: data.user_id ?? "",
-        }
-        dispatch(updateProfile(values))
-        setShowBadge(false)
-      }
-    } catch (error) {
-      setShowBadge(true)
-    } finally {
-      setLoading(false)
+      dispatch(updateProfile(values))
+      setShowBadge(false)
     }
-  }, [user])
+    if (error) {
+      console.log(error)
+      setShowBadge(true)
+    }
+
+    setLoading(false)
+  }, [user, supabase])
 
   useEffect(() => {
     getProfile()
