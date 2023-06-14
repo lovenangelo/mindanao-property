@@ -38,7 +38,7 @@ export default function UserAvatar({
       }
     }
     getAvatar()
-  }, [])
+  }, [user])
 
   return (
     <Avatar className={cn(height, width)}>
