@@ -1,24 +1,24 @@
 "use client"
 
-import { ChangeEvent, useState } from "react"
-import { Avatar } from "@radix-ui/react-avatar"
+import { useState } from "react"
 
 import { cn, supabase } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
-  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
+import { toast } from "@/components/ui/use-toast"
+import { Icons } from "@/components/icons"
 import { useUser } from "@/components/providers/user-provider"
 import UserAvatar from "@/components/user-avatar"
 
 export default function PhotoUploadDialog() {
   const { user } = useUser()
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
+  const [isLoading, setIsLoading] = useState(false)
   const [isDraggingOver, setIsDraggingOver] = useState(false)
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -42,14 +42,37 @@ export default function PhotoUploadDialog() {
   }
 
   const handleUpload = async () => {
+    setIsLoading(true)
     const { data, error } = await supabase.storage
-      .from("images")
-      .upload("profile-photo", selectedFile!, {
+      .from("profiles")
+      .upload(`${user!.id}/profile-photo`, selectedFile!, {
         cacheControl: "3600",
         upsert: false,
       })
 
+    if (error) {
+      toast({
+        title: "Upload failed",
+        description: "Something went wrong. Please try again.",
+      })
+      console.log(error)
+      setIsLoading(false)
+
+      return
+    }
+
     const filepath = data?.path
+
+    await supabase.auth.updateUser({
+      data: { profile_photo_path: filepath },
+    })
+
+    setIsLoading(false)
+
+    toast({
+      title: "Successful",
+      description: "New profile photo saved",
+    })
   }
 
   return (
@@ -111,7 +134,17 @@ export default function PhotoUploadDialog() {
           </div>
           <p className="text-gray-600 mb-2">Allowed photo types: JPEG, PNG</p>
           <div className="flex justify-center mt-4">
-            <Button disabled={selectedFile == null}>Upload</Button>
+            <Button
+              onClick={() => {
+                handleUpload()
+              }}
+              disabled={selectedFile == null || isLoading}
+            >
+              {isLoading && (
+                <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
+              )}
+              Upload
+            </Button>
           </div>
         </div>
       </DialogContent>

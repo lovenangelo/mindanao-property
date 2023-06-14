@@ -1,7 +1,10 @@
 "use client"
 
-import { cn } from "@/lib/utils"
+import { useEffect, useState } from "react"
 
+import { cn, supabase } from "@/lib/utils"
+
+import { Icons } from "./icons"
 import { useUser } from "./providers/user-provider"
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 
@@ -14,14 +17,34 @@ export default function UserAvatar({
   width: string | null
   src: string
 }) {
+  const [avatar, setAvatar] = useState<Blob | null>(null)
+  const [isLoading, setIsLoading] = useState(false)
+
   const { user } = useUser()
 
   const userInitials = user!.email![0].toUpperCase()
+
+  console.log(user)
+
+  useEffect(() => {
+    const getAvatar = async () => {
+      const { data, error } = await supabase.storage
+        .from("profiles")
+        .download(`${user!.id}/profile-photo`)
+      if (error) {
+        console.log(error)
+      } else {
+        setAvatar(data)
+      }
+    }
+    getAvatar()
+  }, [])
+
   return (
     <Avatar className={cn(height, width)}>
-      <AvatarImage src={src} />
+      <AvatarImage src={avatar ? URL.createObjectURL(avatar) : src} />
       <AvatarFallback className={cn("font-semibold border text-2xl")}>
-        {userInitials}
+        {isLoading ? <Icons.spinner /> : userInitials}
       </AvatarFallback>
     </Avatar>
   )
