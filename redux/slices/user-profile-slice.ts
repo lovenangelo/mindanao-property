@@ -43,7 +43,7 @@ export const userProfileSlice = createSlice({
   initialState,
   reducers: {
     updateProfile: (state, action: PayloadAction<profile>) => {
-      const fields = {
+      let fields = {
         ...action.payload,
         date_of_birth:
           action.payload.date_of_birth.length == 0

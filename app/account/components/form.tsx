@@ -1,4 +1,6 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react"
+"use client"
+
+import { Dispatch, SetStateAction } from "react"
 import { useRouter } from "next/navigation"
 import { useAppSelector } from "@/redux/hooks"
 import { selectProfile } from "@/redux/slices/user-profile-slice"
@@ -77,18 +79,13 @@ export default function AccountForm({
   user: User
 }) {
   const profile = useAppSelector(selectProfile)
-  console.log(profile)
-
-  const [defaultValues, setDefaultValues] = useState(profile)
 
   const router = useRouter()
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      ...defaultValues,
-      contact: defaultValues.contact.toString(),
-    },
+    defaultValues: profile,
+    values: profile,
   })
 
   const handleSave = async (values: ProfilesSchema) => {
@@ -114,11 +111,6 @@ export default function AccountForm({
     setIsLoading(false)
     setAllowedEdit(false)
   }
-
-  useEffect(() => {
-    const newProfile = { ...profile, contact: profile.contact.toString() }
-    setDefaultValues(newProfile)
-  }, [profile])
 
   return (
     <Form {...form}>
