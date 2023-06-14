@@ -5,6 +5,7 @@ import { useState } from "react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Icons } from "@/components/icons"
+import { useUser } from "@/components/providers/user-provider"
 import UserAvatar from "@/components/user-avatar"
 
 import AccountForm from "./components/form"
@@ -12,6 +13,7 @@ import AccountForm from "./components/form"
 export default function AccountPage() {
   const [allowedEdit, setAllowedEdit] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const { user } = useUser()
 
   return (
     <div className="h-[464px] md:h-[720px] w-full overflow-y-auto flex flex-col justify-center items-center">
@@ -47,9 +49,11 @@ export default function AccountPage() {
         </div>
         <div className="h-full w-full max-w-lg mt-4">
           <AccountForm
+            setAllowedEdit={setAllowedEdit}
             allowedEdit={allowedEdit}
             isLoading={isLoading}
             setIsLoading={setIsLoading}
+            user={user!}
           />
         </div>
       </div>

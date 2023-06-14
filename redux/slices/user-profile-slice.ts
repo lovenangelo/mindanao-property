@@ -8,10 +8,13 @@ type profile = {
   first_name: string
   last_name: string
   username: string
-  contact: string | number
+  contact: string
   date_of_birth: string
   bio: string
   address: string
+  created_at: string
+  user_id: string
+  updated_at: string
 }
 
 // Define a type for the slice state
@@ -24,11 +27,14 @@ const initialState: ProfileState = {
   value: {
     address: "",
     bio: "",
-    contact: 0,
+    contact: "",
     date_of_birth: "",
     first_name: "",
     last_name: "",
     username: "",
+    created_at: "",
+    user_id: "",
+    updated_at: "",
   },
 }
 
@@ -37,7 +43,14 @@ export const userProfileSlice = createSlice({
   initialState,
   reducers: {
     updateProfile: (state, action: PayloadAction<profile>) => {
-      state.value = action.payload
+      const fields = {
+        ...action.payload,
+        date_of_birth:
+          action.payload.date_of_birth.length == 0
+            ? ""
+            : action.payload.date_of_birth.slice(0, 10),
+      }
+      state.value = fields
     },
   },
   extraReducers: {

@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation"
 import { useAppSelector } from "@/redux/hooks"
 import { selectProfile } from "@/redux/slices/user-profile-slice"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { User } from "@supabase/auth-helpers-nextjs"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 
@@ -18,6 +19,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { toast } from "@/components/ui/use-toast"
 import { Icons } from "@/components/icons"
 
 const formSchema = z.object({
@@ -25,14 +27,14 @@ const formSchema = z.object({
     .string()
     .min(2, { message: "First name must be at least 2 characters" })
     .max(50, { message: "First name must not exceed 50 characters" })
-    .regex(/^[A-Za-z]+$/, {
+    .regex(/[a-zA-Z][a-zA-Z ]+/, {
       message: "Name should not contain numbers or special characters",
     }),
   last_name: z
     .string()
     .min(2, { message: "Last name must be at least 2 characters" })
     .max(50, { message: "Last name must not exceed 50 characters" })
-    .regex(/^[A-Za-z]+$/, {
+    .regex(/[a-zA-Z][a-zA-Z ]+/, {
       message: "Name should not contain numbers or special characters",
     }),
   username: z
@@ -42,8 +44,7 @@ const formSchema = z.object({
     .regex(/^\w+$/),
   contact: z
     .string()
-    .max(10, { message: "Contact number must not exceed 10 digits" })
-    .or(z.number()),
+    .max(10, { message: "Contact number must not exceed 10 digits" }),
   date_of_birth: z.string(),
   address: z
     .string()
@@ -51,16 +52,32 @@ const formSchema = z.object({
   bio: z.string().max(100),
 })
 
+type ProfilesSchema = {
+  first_name: string
+  last_name: string
+  username: string
+  contact: number
+  date_of_birth: string
+  bio: string
+  address: string
+  user_id: string
+}
+
 export default function AccountForm({
   allowedEdit,
+  setAllowedEdit,
   isLoading,
   setIsLoading,
+  user,
 }: {
   allowedEdit: boolean
   isLoading: boolean
   setIsLoading: Dispatch<SetStateAction<boolean>>
+  setAllowedEdit: Dispatch<SetStateAction<boolean>>
+  user: User
 }) {
   const profile = useAppSelector(selectProfile)
+  console.log(profile)
 
   const [defaultValues, setDefaultValues] = useState(profile)
 
@@ -68,12 +85,39 @@ export default function AccountForm({
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: defaultValues,
+    defaultValues: {
+      ...defaultValues,
+      contact: defaultValues.contact.toString(),
+    },
   })
 
+  const handleSave = async (values: ProfilesSchema) => {
+    setIsLoading(true)
+    const { error } = await supabase
+      .from("profiles")
+      .upsert(values)
+      .eq("user_id", user.id)
+      .single()
+
+    if (error) {
+      toast({
+        title: "Uh oh! Something went wrong.",
+        description: error.message,
+      })
+    } else {
+      toast({
+        description: "Successfully updated your profile",
+      })
+      router.refresh()
+    }
+
+    setIsLoading(false)
+    setAllowedEdit(false)
+  }
+
   useEffect(() => {
-    setDefaultValues(profile)
-    console.log(profile)
+    const newProfile = { ...profile, contact: profile.contact.toString() }
+    setDefaultValues(newProfile)
   }, [profile])
 
   return (
@@ -81,7 +125,12 @@ export default function AccountForm({
       <form
         className="flex flex-col gap-2"
         onSubmit={form.handleSubmit((values) => {
-          console.log(values)
+          const newProfile = {
+            ...values,
+            contact: parseInt(values.contact),
+            user_id: profile.user_id,
+          }
+          handleSave(newProfile)
         })}
       >
         <div className="md:flex-row flex flex-col md:gap-2 w-full">

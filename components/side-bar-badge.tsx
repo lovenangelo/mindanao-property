@@ -25,9 +25,7 @@ export default function SideBarBadge({
 
       let { data, error, status } = await supabase
         .from("profiles")
-        .select(
-          "first_name,last_name,username,contact,date_of_birth,bio,address"
-        )
+        .select("*")
         .eq("user_id", user?.id)
         .single()
 
@@ -39,11 +37,14 @@ export default function SideBarBadge({
         const values = {
           address: data.address ?? "",
           bio: data.bio ?? "",
-          contact: data.contact ?? "",
+          contact: data.contact?.toString() ?? "",
           date_of_birth: data.date_of_birth ?? "",
           first_name: data.first_name ?? "",
           last_name: data.last_name ?? "",
           username: data.username ?? "",
+          created_at: data.created_at ?? "",
+          updated_at: data.updated_at ?? "",
+          user_id: data.user_id ?? "",
         }
         dispatch(updateProfile(values))
         setShowBadge(false)
