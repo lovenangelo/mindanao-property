@@ -22,14 +22,13 @@ export default function SideBarBadge({
   const getProfile = useCallback(async () => {
     setLoading(true)
 
-    let { data, error, status } = await supabase
+    let { data, error } = await supabase
       .from("profiles")
       .select("*")
       .eq("user_id", user?.id)
       .single()
 
     if (data) {
-      console.log(data)
       const values = {
         address: data.address ?? "",
         bio: data.bio ?? "",
@@ -46,7 +45,6 @@ export default function SideBarBadge({
       setShowBadge(false)
     }
     if (error) {
-      console.log(error)
       setShowBadge(true)
     }
 

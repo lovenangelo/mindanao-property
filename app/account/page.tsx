@@ -9,6 +9,7 @@ import { useUser } from "@/components/providers/user-provider"
 import UserAvatar from "@/components/user-avatar"
 
 import AccountForm from "./components/form"
+import PhotoUploadDialog from "./components/photo-upload-dialog"
 
 export default function AccountPage() {
   const [allowedEdit, setAllowedEdit] = useState(false)
@@ -43,9 +44,7 @@ export default function AccountPage() {
         </div>
         <div className="w-full flex items-center space-x-2 mt-4">
           <UserAvatar height="h-20" width="w-20" />
-          <Button size={"sm"} variant={"outline"}>
-            Change photo
-          </Button>
+          <PhotoUploadDialog />
         </div>
         <div className="h-full w-full max-w-lg mt-4">
           <AccountForm
