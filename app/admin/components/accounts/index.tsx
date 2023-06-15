@@ -10,7 +10,7 @@ import {HouseIcon} from '../icons/breadcrumb/house-icon';
 import {UsersIcon} from '../icons/breadcrumb/users-icon';
 import {SettingsIcon} from '../icons/sidebar/settings-icon';
 import {Flex} from '../styles/flex';
-import {TableWrapper} from '../table/table';
+import {AccountsTableWrapper} from '../table/accounts/account.table';
 import {AddUser} from './add-user';
 
 export const Accounts = () => {
@@ -30,8 +30,8 @@ export const Accounts = () => {
          <Breadcrumbs>
             <Crumb>
                <HouseIcon />
-               <Link href={'/'}>
-                  <CrumbLink href="#">Home</CrumbLink>
+               <Link href={'/admin'}>
+                  <CrumbLink href="/admin">Home</CrumbLink>
                </Link>
                <Text>/</Text>
             </Crumb>
@@ -77,8 +77,7 @@ export const Accounts = () => {
                </Button>
             </Flex>
          </Flex>
-
-         <TableWrapper />
+         <AccountsTableWrapper />
       </Flex>
    );
 };

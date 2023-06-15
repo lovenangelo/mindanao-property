@@ -1,30 +1,33 @@
-import { createMiddlewareClient } from "@supabase/auth-helpers-nextjs";
-import { NextResponse } from "next/server";
+import { NextResponse, type NextRequest } from "next/server"
+import { createMiddlewareClient } from "@supabase/auth-helpers-nextjs"
 
-import type { NextRequest } from "next/server";
-import type { Database } from "@/types/supabase";
+import type { Database } from "@/types/supabase"
 
 export async function middleware(req: NextRequest) {
-  const res = NextResponse.next();
-  const supabase = createMiddlewareClient<Database>({ req, res });
+  const res = NextResponse.next()
+  const supabase = createMiddlewareClient<Database>({ req, res })
+  await supabase.auth.getSession()
 
   const {
-    data: { session },
-  } = await supabase.auth.getSession();
+    data: { user },
+  } = await supabase.auth.getUser()
 
-  if (!session) {
-    if (req.nextUrl.pathname.startsWith("/dashboard")) {
-      const redirectUrl = req.nextUrl.clone();
-      redirectUrl.pathname = "/auth";
-      return NextResponse.redirect(redirectUrl);
-    }
-  } else {
-    if (req.nextUrl.pathname.startsWith("/auth")) {
-      const redirectUrl = req.nextUrl.clone();
-      redirectUrl.pathname = "/";
-      return NextResponse.redirect(redirectUrl);
-    }
+  // if user is signed in and the current path is / redirect the user to /account
+  if (
+    user &&
+    (req.nextUrl.pathname === "/" || req.nextUrl.pathname === "/auth")
+  ) {
+    return NextResponse.redirect(new URL("/overview", req.url))
   }
 
-  return res;
+  // if user is not signed in and the current path is not /overview redirect the user to /
+  if (!user && req.nextUrl.pathname == "/overview") {
+    return NextResponse.redirect(new URL("/", req.url))
+  }
+
+  return res
+}
+
+export const config = {
+  matcher: ["/", "/overview", "/auth"],
 }

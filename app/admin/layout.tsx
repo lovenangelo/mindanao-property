@@ -1,12 +1,9 @@
 "use client";
-import "../globals.css";
-import type { AppProps } from "next/app";
+// import "../globals.css";
 import { createTheme, NextUIProvider } from "@nextui-org/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
-import { Layout } from "./components/layout/layout";
 import React from "react";
 import {SSRProvider} from '@react-aria/ssr'; 
-
 import { useLockedBody } from "./components/hooks/useBodyLock";
 import { NavbarWrapper } from "./components/navbar/navbar";
 import { SidebarWrapper } from "./components/sidebar/sidebar";
@@ -36,34 +33,30 @@ function AdminLayout({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <html lang="en">
-      <body>
-        <SSRProvider>
-          <NextThemesProvider
-            defaultTheme="system"
-            attribute="class"
+    <SSRProvider>
+      <NextThemesProvider
+        defaultTheme="system"
+        attribute="class"
+        value={{
+          light: lightTheme.className,
+          dark: darkTheme.className,
+        }}
+      >
+        <NextUIProvider>
+          <SidebarContext.Provider
             value={{
-              light: lightTheme.className,
-              dark: darkTheme.className,
+              collapsed: sidebarOpen,
+              setCollapsed: handleToggleSidebar,
             }}
           >
-            <NextUIProvider>
-              <SidebarContext.Provider
-                value={{
-                  collapsed: sidebarOpen,
-                  setCollapsed: handleToggleSidebar,
-                }}
-              >
-                <WrapperLayout>
-                  <SidebarWrapper />
-                  <NavbarWrapper>{children}</NavbarWrapper>
-                </WrapperLayout>
-              </SidebarContext.Provider>
-            </NextUIProvider>
-          </NextThemesProvider>
-        </SSRProvider>
-      </body>
-    </html>
+            <WrapperLayout>
+              <SidebarWrapper />
+              <NavbarWrapper>{children}</NavbarWrapper>
+            </WrapperLayout>
+          </SidebarContext.Provider>
+        </NextUIProvider>
+      </NextThemesProvider>
+    </SSRProvider>
   );
 }
 
