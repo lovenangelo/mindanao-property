@@ -43,7 +43,7 @@ export default function AccountPage() {
           )}
         </div>
         <div className="w-full flex items-center space-x-2 mt-4">
-          <UserAvatar height="h-20" width="w-20" />
+          <UserAvatar src="/" height="h-20" width="w-20" />
           <PhotoUploadDialog />
         </div>
         <div className="h-full w-full max-w-lg mt-4">

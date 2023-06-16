@@ -43,8 +43,8 @@ export const siteConfig = {
       icon: Icons.overview,
     },
     {
-      title: "Property",
-      href: "/property",
+      title: "Properties",
+      href: "/properties",
       disabled: false,
       icon: Icons.property,
     },

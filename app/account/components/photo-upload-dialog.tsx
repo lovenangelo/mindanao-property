@@ -78,9 +78,7 @@ export default function PhotoUploadDialog() {
   return (
     <Dialog>
       <DialogTrigger>
-        <Button size={"sm"} variant={"outline"}>
-          Change photo
-        </Button>
+        <p className="text-sm">Change photo</p>
       </DialogTrigger>
       <DialogContent className={cn("w-36 md:w-96 h-max")}>
         <div className="flex-col inset-0 flex items-center justify-center">

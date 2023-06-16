@@ -24,8 +24,6 @@ export default function UserAvatar({
 
   const userInitials = user!.email![0].toUpperCase()
 
-  console.log(user)
-
   useEffect(() => {
     const getAvatar = async () => {
       const { data, error } = await supabase.storage
@@ -38,6 +36,7 @@ export default function UserAvatar({
       }
     }
     getAvatar()
+    console.log("use effect running")
   }, [user])
 
   return (
