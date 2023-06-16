@@ -3,6 +3,8 @@
 import MainLoader from "@/components/loaders/main-loader"
 import { useUser } from "@/components/providers/user-provider"
 
+import PropertiesSidebar from "./components/properties-sidebar"
+
 interface RootLayoutProps {
   children: React.ReactNode
 }
@@ -15,9 +17,9 @@ export default function PropertiesLayout({ children }: RootLayoutProps) {
   }
 
   return (
-    <div className="p-4 h-[calc(100vh-65px)] w-full space-y-4 bg-secondary flex flex-col">
-      <h1 className="font-medium text-lg nd:text-2xl">Listings</h1>
-      <div className="h-auto bg-background p-8 rounded-lg flex items-center">
+    <div className="h-[calc(100vh-65px)] w-full flex">
+      <PropertiesSidebar />
+      <div className="m-2 h-[calc(100%-16px)] md:my-4 md:mr-8 bg-black md:h-[calc(100%-32px)] w-full rounded-md">
         {children}
       </div>
     </div>
