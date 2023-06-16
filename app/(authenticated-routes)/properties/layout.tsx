@@ -7,7 +7,7 @@ interface RootLayoutProps {
   children: React.ReactNode
 }
 
-export default function AccountLayout({ children }: RootLayoutProps) {
+export default function PropertiesLayout({ children }: RootLayoutProps) {
   const { isLoading, user } = useUser()
 
   if (isLoading || !user) {
@@ -16,7 +16,7 @@ export default function AccountLayout({ children }: RootLayoutProps) {
 
   return (
     <div className="p-4 h-[calc(100vh-65px)] w-full space-y-4 bg-secondary flex flex-col">
-      <h1 className="font-medium text-lg nd:text-2xl">Account Settings</h1>
+      <h1 className="font-medium text-lg nd:text-2xl">Listings</h1>
       <div className="h-auto bg-background p-8 rounded-lg flex items-center">
         {children}
       </div>
