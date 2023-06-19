@@ -35,7 +35,7 @@ export default function PropertiesSidebar() {
         <div className="space-y-2">
           <p>Property type</p>
           <Select>
-            <SelectTrigger className="w-[180px]">
+            <SelectTrigger>
               <SelectValue placeholder="Pad" />
             </SelectTrigger>
             <SelectContent>{propertyTypeItems}</SelectContent>
@@ -60,7 +60,7 @@ export default function PropertiesSidebar() {
         <div className="space-y-2">
           <p>Additional conveniences</p>
           <Select>
-            <SelectTrigger className="w-[180px]">
+            <SelectTrigger>
               <SelectValue placeholder="None" />
             </SelectTrigger>
             <SelectContent>{additionalConveniencesItems}</SelectContent>
