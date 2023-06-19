@@ -1,3 +1,9 @@
+import { Input } from "@/components/ui/input"
+
 export default function PropertiesPage() {
-  return <h1>Properties page</h1>
+  return (
+    <div>
+      <Input placeholder="Search" />
+    </div>
+  )
 }

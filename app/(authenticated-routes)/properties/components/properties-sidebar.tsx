@@ -25,14 +25,14 @@ export default function PropertiesSidebar() {
     <div className="hidden md:block m-4 p-2 h-[calc(100%-32px)] w-64 rounded ">
       <h1 className="text-xl font-semibold mb-4">Filters</h1>
       <div className="space-y-8">
-        <div className="space-y-2 h-max w-full">
+        <div className="space-y-2 h-max w-full text-muted-foreground">
           <p>Sort by date listed</p>
           <div className="flex space-x-1">
             <Button variant={"outline"}>Ascending</Button>
             <Button variant={"outline"}>Descending</Button>
           </div>
         </div>
-        <div className="space-y-2">
+        <div className="space-y-2 text-muted-foreground">
           <p>Property type</p>
           <Select>
             <SelectTrigger>
@@ -41,23 +41,23 @@ export default function PropertiesSidebar() {
             <SelectContent>{propertyTypeItems}</SelectContent>
           </Select>
         </div>
-        <div className="space-y-2">
+        <div className="space-y-2 text-muted-foreground">
           <p>Price</p>
           <Input type="number" placeholder="Enter min. price" />
         </div>
-        <div className="space-y-2">
+        <div className="space-y-2 text-muted-foreground">
           <p>Bedroom</p>
           <Input type="number" placeholder="Enter min. no. of bedrooms" />
         </div>
-        <div className="space-y-2">
+        <div className="space-y-2 text-muted-foreground">
           <p>Bathroom</p>
           <Input type="number" placeholder="Enter min. no. of bathrooms" />
         </div>
-        <div className="space-y-2">
+        <div className="space-y-2 text-muted-foreground">
           <p>Property area range</p>
           <Input type="number" placeholder="Enter min. area" />
         </div>
-        <div className="space-y-2">
+        <div className="space-y-2 text-muted-foreground">
           <p>Additional conveniences</p>
           <Select>
             <SelectTrigger>
