@@ -1,22 +1,24 @@
 "use client"
 
-import React from "react"
+import React, { useMemo, useState } from "react"
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api"
+
+import { Skeleton } from "@/components/ui/skeleton"
+
+import PlacesAutocomplete from "./places"
 
 const containerStyle = {
   width: "100%",
   height: "100%",
 }
 
-const center = {
-  lat: -3.745,
-  lng: -38.523,
-}
-
 const GMap = () => {
+  const center = useMemo(() => ({ lat: 43.45, lng: -80.49 }), [])
+  const [selected, setSelected] = useState<null | {}>(null)
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY!,
+    libraries: ["places"],
   })
 
   const [map, setMap] = React.useState<
@@ -36,18 +38,23 @@ const GMap = () => {
   }, [])
 
   return isLoaded ? (
-    <GoogleMap
-      mapContainerStyle={containerStyle}
-      center={center}
-      zoom={10}
-      onLoad={onLoad}
-      onUnmount={onUnmount}
-    >
-      {/* Child components, such as markers, info windows, etc. */}
-      <></>
-    </GoogleMap>
+    <div className="h-full w-full">
+      <div className="places-container">
+        <PlacesAutocomplete />
+      </div>
+      <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={center}
+        zoom={10}
+        onLoad={onLoad}
+        onUnmount={onUnmount}
+      >
+        {/* Child components, such as markers, info windows, etc. */}
+        <></>
+      </GoogleMap>
+    </div>
   ) : (
-    <></>
+    <Skeleton className="w-full h-full" />
   )
 }
 
