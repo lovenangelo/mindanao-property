@@ -33,7 +33,7 @@ export default function PropertiesSidebar() {
           </div>
         </div>
         <div className="space-y-2 text-muted-foreground">
-          <p>Property type</p>
+          <p className="text-muted-foreground">Property type</p>
           <Select>
             <SelectTrigger>
               <SelectValue placeholder="Pad" />
@@ -41,24 +41,24 @@ export default function PropertiesSidebar() {
             <SelectContent>{propertyTypeItems}</SelectContent>
           </Select>
         </div>
-        <div className="space-y-2 text-muted-foreground">
-          <p>Price</p>
+        <div className="space-y-2">
+          <p className="text-muted-foreground">Price</p>
           <Input type="number" placeholder="Enter min. price" />
         </div>
-        <div className="space-y-2 text-muted-foreground">
-          <p>Bedroom</p>
+        <div className="space-y-2">
+          <p className="text-muted-foreground">Bedroom</p>
           <Input type="number" placeholder="Enter min. no. of bedrooms" />
         </div>
-        <div className="space-y-2 text-muted-foreground">
-          <p>Bathroom</p>
+        <div className="space-y-2">
+          <p className="text-muted-foreground">Bathroom</p>
           <Input type="number" placeholder="Enter min. no. of bathrooms" />
         </div>
-        <div className="space-y-2 text-muted-foreground">
-          <p>Property area range</p>
+        <div className="space-y-2">
+          <p className="text-muted-foreground">Property area range</p>
           <Input type="number" placeholder="Enter min. area" />
         </div>
         <div className="space-y-2 text-muted-foreground">
-          <p>Additional conveniences</p>
+          <p className="text-muted-foreground">Additional conveniences</p>
           <Select>
             <SelectTrigger>
               <SelectValue placeholder="None" />
