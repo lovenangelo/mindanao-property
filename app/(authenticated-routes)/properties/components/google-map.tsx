@@ -18,8 +18,19 @@ const containerStyle = {
 }
 
 function addMarkers(map: google.maps.Map) {
+  const infoWindow = new google.maps.InfoWindow()
+
   const markers: google.maps.Marker[] = trees.map(([name, lat, lng]) => {
     const marker = new google.maps.Marker({ position: { lat, lng } })
+    marker.addListener("click", () => {
+      infoWindow.setPosition({ lat, lng })
+      infoWindow.setContent(
+        `<div className='bg-primary'>
+        <h2>${name}</h2>
+        </div>`
+      )
+      infoWindow.open({ map })
+    })
     return marker
   })
 
@@ -62,7 +73,7 @@ const GMap = () => {
     <GoogleMap
       mapContainerStyle={containerStyle}
       center={center}
-      zoom={5}
+      zoom={12}
       onLoad={onLoad}
       onUnmount={onUnmount}
     >
