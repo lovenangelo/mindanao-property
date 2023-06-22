@@ -1,4 +1,4 @@
-import { ChangeEvent } from "react"
+import React, { ChangeEvent } from "react"
 import useOnclickOutside from "react-cool-onclickoutside"
 import usePlacesAutocomplete, {
   getGeocode,
@@ -8,7 +8,16 @@ import usePlacesAutocomplete, {
 import { cn } from "@/lib/utils"
 import { Input } from "@/components/ui/input"
 
-const PlacesAutocomplete = () => {
+const PlacesAutocomplete = ({
+  setCenter,
+}: {
+  setCenter: React.Dispatch<
+    React.SetStateAction<{
+      lat: number
+      lng: number
+    }>
+  >
+}) => {
   const {
     ready,
     value,
@@ -44,6 +53,7 @@ const PlacesAutocomplete = () => {
       getGeocode({ address: description }).then((results) => {
         const { lat, lng } = getLatLng(results[0])
         console.log("📍 Coordinates: ", { lat, lng })
+        setCenter({ lat: lat, lng: lng })
       })
     }
 
@@ -66,18 +76,23 @@ const PlacesAutocomplete = () => {
     })
 
   return (
-    <div className="absolute z-20 left-1/2 mt-4" ref={ref}>
-      <Input
-        className={cn("bg-primary-foreground shadow-md", "md:w-96")}
-        placeholder="Search a location..."
-        value={value}
-        onChange={handleInput}
-        disabled={!ready}
-      />
-      {/* We can use the "status" to decide whether we should display the dropdown or not */}
-      {status === "OK" && (
-        <ul className="p-2 md:w-96 space-y-2">{renderSuggestions()}</ul>
-      )}
+    <div className="w-full relative">
+      <div
+        className="w-full absolute z-20 mt-4 flex items-center flex-col"
+        ref={ref}
+      >
+        <Input
+          className={cn("bg-white shadow-md", "md:w-96")}
+          placeholder="Search a location..."
+          value={value}
+          onChange={handleInput}
+          disabled={!ready}
+        />
+        {/* We can use the "status" to decide whether we should display the dropdown or not */}
+        {status === "OK" && (
+          <ul className="p-2 md:w-96 space-y-2">{renderSuggestions()}</ul>
+        )}
+      </div>
     </div>
   )
 }

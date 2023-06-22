@@ -13,8 +13,11 @@ const containerStyle = {
 }
 
 const GMap = () => {
-  const center = useMemo(() => ({ lat: 43.45, lng: -80.49 }), [])
-  const [selected, setSelected] = useState<null | {}>(null)
+  const [center, setCenter] = useState<{
+    lat: number
+    lng: number
+  }>({ lat: 6.2707, lng: 124.6857 })
+
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY!,
@@ -38,21 +41,17 @@ const GMap = () => {
   }, [])
 
   return isLoaded ? (
-    <div className="h-full w-full">
-      <div className="places-container">
-        <PlacesAutocomplete />
-      </div>
-      <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={10}
-        onLoad={onLoad}
-        onUnmount={onUnmount}
-      >
-        {/* Child components, such as markers, info windows, etc. */}
-        <></>
-      </GoogleMap>
-    </div>
+    <GoogleMap
+      mapContainerStyle={containerStyle}
+      center={center}
+      zoom={10}
+      onLoad={onLoad}
+      onUnmount={onUnmount}
+    >
+      <PlacesAutocomplete setCenter={setCenter} />
+      {/* Child components, such as markers, info windows, etc. */}
+      <></>
+    </GoogleMap>
   ) : (
     <Skeleton className="w-full h-full" />
   )
