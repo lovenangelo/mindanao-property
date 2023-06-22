@@ -11,8 +11,8 @@ export default function AuthenticatedNav() {
     <div className="px-8 flex h-16 w-full items-center space-x-4">
       <div>
         <Link href="/" className="flex items-center space-x-2">
-          <Icons.logo className="h-6 w-6" />
-          <span className="font-bold md:inline-block hidden">
+          <Icons.logo className="h-16 w-16" />
+          <span className="font-bold text-sm md:text-md">
             {siteConfig.name}
           </span>
         </Link>
