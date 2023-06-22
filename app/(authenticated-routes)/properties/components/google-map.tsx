@@ -1,8 +1,13 @@
 "use client"
 
-import React, { useMemo, useState } from "react"
+import React, { useState } from "react"
+import {
+  MarkerClusterer,
+  SuperClusterAlgorithm,
+} from "@googlemaps/markerclusterer"
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api"
 
+import trees from "@/lib/trees"
 import { Skeleton } from "@/components/ui/skeleton"
 
 import PlacesAutocomplete from "./places"
@@ -12,11 +17,24 @@ const containerStyle = {
   height: "100%",
 }
 
+function addMarkers(map: google.maps.Map) {
+  const markers: google.maps.Marker[] = trees.map(([name, lat, lng]) => {
+    const marker = new google.maps.Marker({ position: { lat, lng } })
+    return marker
+  })
+
+  new MarkerClusterer({
+    markers,
+    map,
+    algorithm: new SuperClusterAlgorithm({ radius: 200 }),
+  })
+}
+
 const GMap = () => {
   const [center, setCenter] = useState<{
     lat: number
     lng: number
-  }>({ lat: 6.2707, lng: 124.6857 })
+  }>({ lat: 43.68, lng: -79.43 })
 
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
@@ -32,8 +50,8 @@ const GMap = () => {
     // This is just an example of getting and using the map instance!!! don't just blindly copy!
     const bounds = new window.google.maps.LatLngBounds(center)
     map.fitBounds(bounds)
-
     setMap(map)
+    addMarkers(map)
   }, [])
 
   const onUnmount = React.useCallback(function callback(map: google.maps.Map) {
