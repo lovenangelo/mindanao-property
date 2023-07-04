@@ -8,7 +8,7 @@ interface RootLayoutProps {
 }
 
 
-export default function OverviewLayout({ children }: RootLayoutProps) {
+export default function ReportsLayout({ children }: RootLayoutProps) {
   const { isLoading, user } = useUser()
 
   if (isLoading || !user) {
