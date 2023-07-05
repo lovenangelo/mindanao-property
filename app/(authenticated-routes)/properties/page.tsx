@@ -7,11 +7,12 @@ import { Button } from "@/components/ui/button"
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 
 import GMap from "./components/google-map"
 
@@ -44,12 +45,40 @@ export default function PropertiesPage() {
             </DialogTrigger>
             <DialogContent>
               <DialogHeader>
-                <DialogTitle>Are you sure absolutely sure?</DialogTitle>
-                <DialogDescription>
-                  This action cannot be undone. This will permanently delete
-                  your account and remove your data from our servers.
-                </DialogDescription>
+                <DialogTitle>List a new property</DialogTitle>
               </DialogHeader>
+              <div className="grid w-full max-w-sm items-center gap-1.5">
+                <Label htmlFor="email">Email</Label>
+                <Input type="email" id="email" placeholder="Email" />
+              </div>
+              <div className="grid w-full max-w-sm items-center gap-1.5">
+                <Label htmlFor="email">Email</Label>
+                <Input type="email" id="email" placeholder="Email" />
+              </div>
+              <div className="grid w-full max-w-sm items-center gap-1.5">
+                <Label htmlFor="email">Email</Label>
+                <Input type="email" id="email" placeholder="Email" />
+              </div>
+              <div className="grid w-full max-w-sm items-center gap-1.5">
+                <Label htmlFor="email">Email</Label>
+                <Input type="email" id="email" placeholder="Email" />
+              </div>
+              <div className="grid w-full max-w-sm items-center gap-1.5">
+                <Label htmlFor="email">Email</Label>
+                <Input type="email" id="email" placeholder="Email" />
+              </div>
+              <div className="grid w-full max-w-sm items-center gap-1.5">
+                <Label htmlFor="email">Email</Label>
+                <Input type="email" id="email" placeholder="Email" />
+              </div>
+              <div className="grid w-full max-w-sm items-center gap-1.5">
+                <Label htmlFor="email">Email</Label>
+                <Input type="email" id="email" placeholder="Email" />
+              </div>
+              <div className="grid w-full max-w-sm items-center gap-1.5">
+                <Label htmlFor="email">Email</Label>
+                <Input type="email" id="email" placeholder="Email" />
+              </div>
             </DialogContent>
           </Dialog>
         </div>
