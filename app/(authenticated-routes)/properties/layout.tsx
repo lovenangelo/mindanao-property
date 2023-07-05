@@ -11,7 +11,6 @@ interface RootLayoutProps {
 
 export default function PropertiesLayout({ children }: RootLayoutProps) {
   const { isLoading, user } = useUser()
-
   if (isLoading || !user) {
     return <MainLoader />
   }
@@ -21,7 +20,7 @@ export default function PropertiesLayout({ children }: RootLayoutProps) {
       <div className="m-2 h-[calc(100%-16px)] md:my-4 md:mr-8 border md:h-[calc(100%-32px)] w-full rounded-md">
         {children}
       </div>
-      <PropertiesSidebar />
+      {/* <PropertiesSidebar /> */}
     </div>
   )
 }
