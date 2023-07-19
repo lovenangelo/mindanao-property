@@ -14,6 +14,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
+import PropertiesForm from "./components/(forms)/properties-form"
 import GMap from "./components/google-map"
 
 export default function PropertiesPage() {
@@ -21,7 +22,7 @@ export default function PropertiesPage() {
   return (
     <div className="w-full h-full">
       <div className="flex m-4 space-x-2 justify-between">
-        <div>
+        <div className="space-x-2">
           <Button variant={"outline"} onClick={() => setShowMap(true)}>
             Map
           </Button>
@@ -43,42 +44,11 @@ export default function PropertiesPage() {
             >
               List a property
             </DialogTrigger>
-            <DialogContent>
+            <DialogContent className="flex items-center justify-center flex-col w-max p-8">
               <DialogHeader>
                 <DialogTitle>List a new property</DialogTitle>
               </DialogHeader>
-              <div className="grid w-full max-w-sm items-center gap-1.5">
-                <Label htmlFor="email">Email</Label>
-                <Input type="email" id="email" placeholder="Email" />
-              </div>
-              <div className="grid w-full max-w-sm items-center gap-1.5">
-                <Label htmlFor="email">Email</Label>
-                <Input type="email" id="email" placeholder="Email" />
-              </div>
-              <div className="grid w-full max-w-sm items-center gap-1.5">
-                <Label htmlFor="email">Email</Label>
-                <Input type="email" id="email" placeholder="Email" />
-              </div>
-              <div className="grid w-full max-w-sm items-center gap-1.5">
-                <Label htmlFor="email">Email</Label>
-                <Input type="email" id="email" placeholder="Email" />
-              </div>
-              <div className="grid w-full max-w-sm items-center gap-1.5">
-                <Label htmlFor="email">Email</Label>
-                <Input type="email" id="email" placeholder="Email" />
-              </div>
-              <div className="grid w-full max-w-sm items-center gap-1.5">
-                <Label htmlFor="email">Email</Label>
-                <Input type="email" id="email" placeholder="Email" />
-              </div>
-              <div className="grid w-full max-w-sm items-center gap-1.5">
-                <Label htmlFor="email">Email</Label>
-                <Input type="email" id="email" placeholder="Email" />
-              </div>
-              <div className="grid w-full max-w-sm items-center gap-1.5">
-                <Label htmlFor="email">Email</Label>
-                <Input type="email" id="email" placeholder="Email" />
-              </div>
+              <PropertiesForm />
             </DialogContent>
           </Dialog>
         </div>
