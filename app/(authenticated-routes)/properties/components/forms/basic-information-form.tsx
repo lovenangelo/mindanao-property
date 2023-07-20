@@ -5,6 +5,7 @@ import * as z from "zod"
 import { Button } from "@/components/ui/button"
 import { Form } from "@/components/ui/form"
 
+import LocationFields from "./components/location-fields"
 import SelectPropertyType from "./components/select-property-type"
 import propertiesScheme from "./schema"
 
@@ -15,9 +16,10 @@ export default function BasicInformationForm() {
     resolver: zodResolver(basicInformationFormSchema),
     defaultValues: {
       property_type: "",
+      street_address: "",
       city: "",
       state: "",
-      zip_code: "",
+      zip_code: 0,
       country: "",
     },
   })
@@ -27,8 +29,9 @@ export default function BasicInformationForm() {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-8">
-        <div className="flex flex-col w-full h-full space-y-4">
+        <div className="flex flex-col w-full h-96 overflow-auto space-y-4 p-2">
           <SelectPropertyType form={form} />
+          <LocationFields form={form} />
           <div className="w-full flex justify-end">
             <Button className="w-24" type="submit">
               Next

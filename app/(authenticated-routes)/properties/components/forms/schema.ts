@@ -2,11 +2,12 @@ import * as z from "zod"
 
 // Section 1: Basic Information
 const BasicInformationSchema = z.object({
-  property_type: z.string().nonempty(),
-  city: z.string().nonempty(),
-  state: z.string().nonempty(),
-  zip_code: z.string().nonempty(),
-  country: z.string().nonempty(),
+  property_type: z.string().nonempty("Required"),
+  street_address: z.string().nonempty("Required"),
+  city: z.string().nonempty("Required"),
+  state: z.string().nonempty("Required"),
+  zip_code: z.number().min(4, "Zip code must be 4 digits").max(4),
+  country: z.string().nonempty("Required"),
 })
 
 // Section 2: Location Details

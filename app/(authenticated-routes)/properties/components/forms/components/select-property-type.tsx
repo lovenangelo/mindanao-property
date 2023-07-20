@@ -2,7 +2,6 @@ import { UseFormReturn } from "react-hook-form"
 
 import { propertyTypes } from "@/config/properties"
 import {
-  Form,
   FormControl,
   FormField,
   FormItem,
@@ -22,10 +21,11 @@ export default function SelectPropertyType({
 }: {
   form: UseFormReturn<
     {
+      street_address: string
       property_type: string
       city: string
       state: string
-      zip_code: string
+      zip_code: number
       country: string
     },
     any,
@@ -44,11 +44,13 @@ export default function SelectPropertyType({
         <FormItem>
           <FormLabel>Property type</FormLabel>
           <FormControl>
-            <Select {...field}>
+            <Select defaultValue={field.value} onValueChange={field.onChange}>
               <SelectTrigger className="w-full">
-                <SelectValue placeholder="Theme" />
+                <SelectValue placeholder="Property Type" />
               </SelectTrigger>
-              <SelectContent className="w-full">{selectOptions}</SelectContent>
+              <SelectContent className="w-full">
+                <div className="h-48 overflow-y-auto">{selectOptions}</div>
+              </SelectContent>
             </Select>
           </FormControl>
           <FormMessage />
