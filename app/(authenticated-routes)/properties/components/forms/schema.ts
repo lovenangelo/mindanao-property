@@ -3,7 +3,6 @@ import * as z from "zod"
 // Section 1: Basic Information
 const BasicInformationSchema = z.object({
   property_type: z.string().nonempty(),
-  address: z.string().nonempty(),
   city: z.string().nonempty(),
   state: z.string().nonempty(),
   zip_code: z.string().nonempty(),
@@ -50,10 +49,12 @@ const PropertiesSchema = z.object({
   agent_status_details: StatusDetailsSchema,
 })
 
-const propertiesSchema = {
+const propertiesScheme = {
   BasicInformationSchema,
   LocationDetailsSchema,
   PropertiesSchema,
   DescriptionAmenitiesSchema,
   StatusDetailsSchema,
 }
+
+export default propertiesScheme

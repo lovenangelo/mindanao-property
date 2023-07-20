@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@googlemaps/markerclusterer": "^2.3.0",
-    "@hookform/resolvers": "^3.1.0",
+    "@hookform/resolvers": "^3.1.1",
     "@nextui-org/react": "^1.0.0-beta.13",
     "@radix-ui/react-aspect-ratio": "^1.0.3",
     "@radix-ui/react-avatar": "^1.0.3",

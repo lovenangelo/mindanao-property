@@ -11,10 +11,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 
-import PropertiesForm from "./components/(forms)/properties-form"
+import PropertiesForm from "./components/forms/properties-form"
 import GMap from "./components/google-map"
 
 export default function PropertiesPage() {
@@ -44,7 +42,7 @@ export default function PropertiesPage() {
             >
               List a property
             </DialogTrigger>
-            <DialogContent className="flex items-center justify-center flex-col w-max p-8">
+            <DialogContent className="flex items-center justify-center flex-col w-full p-8">
               <DialogHeader>
                 <DialogTitle>List a new property</DialogTitle>
               </DialogHeader>
