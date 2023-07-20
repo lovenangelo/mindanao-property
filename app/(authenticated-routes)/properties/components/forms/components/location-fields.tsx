@@ -1,6 +1,5 @@
 import { UseFormReturn } from "react-hook-form"
 
-import { propertyTypes } from "@/config/properties"
 import {
   FormControl,
   FormField,

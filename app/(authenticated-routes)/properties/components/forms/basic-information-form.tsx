@@ -27,18 +27,24 @@ export default function BasicInformationForm() {
     console.log(values)
   }
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-8">
-        <div className="flex flex-col w-full h-96 overflow-auto space-y-4 p-2">
-          <SelectPropertyType form={form} />
-          <LocationFields form={form} />
-          <div className="w-full flex justify-end">
-            <Button className="w-24" type="submit">
-              Next
-            </Button>
+    <>
+      <h1>Basic Information</h1>
+      <Form {...form}>
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="w-full space-y-8"
+        >
+          <div className="flex flex-col w-full h-96 overflow-auto space-y-4 p-2">
+            <SelectPropertyType form={form} />
+            <LocationFields form={form} />
+            <div className="w-full flex justify-end">
+              <Button className="w-24" type="submit">
+                Next
+              </Button>
+            </div>
           </div>
-        </div>
-      </form>
-    </Form>
+        </form>
+      </Form>
+    </>
   )
 }
