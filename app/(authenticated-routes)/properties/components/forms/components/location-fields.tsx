@@ -73,7 +73,18 @@ export default function LocationFields({
           <FormItem>
             <FormLabel>Zip code</FormLabel>
             <FormControl>
-              <Input {...field} />
+              <Input
+                type="number"
+                {...field}
+                onChange={(event) => {
+                  let value = parseInt(event.target.value)
+                  if (value < 0) {
+                    value = 0
+                  }
+                  console.log(value)
+                  field.onChange(value)
+                }}
+              />
             </FormControl>
             <FormMessage />
           </FormItem>
