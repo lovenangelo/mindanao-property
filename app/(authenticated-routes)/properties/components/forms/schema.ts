@@ -6,7 +6,7 @@ const BasicInformationSchema = z.object({
   street_address: z.string().nonempty("Required"),
   city: z.string().nonempty("Required"),
   state: z.string().nonempty("Required"),
-  zip_code: z.number().min(4, "Zip code must be 4 digits").max(4),
+  zip_code: z.coerce.number().int().gte(1000).lte(9999).or(z.string()),
   country: z.string().nonempty("Required"),
 })
 

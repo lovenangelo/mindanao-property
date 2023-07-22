@@ -1,4 +1,5 @@
 import { UseFormReturn } from "react-hook-form"
+import * as z from "zod"
 
 import { propertyTypes } from "@/config/properties"
 import {
@@ -16,24 +17,19 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
+import propertiesScheme from "../schema"
+
+const basicInformationSchema = propertiesScheme.BasicInformationSchema
+
 export default function SelectPropertyType({
   form,
 }: {
-  form: UseFormReturn<
-    {
-      street_address: string
-      property_type: string
-      city: string
-      state: string
-      zip_code: number
-      country: string
-    },
-    any,
-    undefined
-  >
+  form: UseFormReturn<z.infer<typeof basicInformationSchema>>
 }) {
-  const selectOptions = propertyTypes.map((type) => (
-    <SelectItem value={type.id}>{type.label}</SelectItem>
+  const selectOptions = propertyTypes.map((type, index) => (
+    <SelectItem key={index} value={type.id}>
+      {type.label}
+    </SelectItem>
   ))
 
   return (
@@ -42,7 +38,9 @@ export default function SelectPropertyType({
       name="property_type"
       render={({ field }) => (
         <FormItem>
-          <FormLabel>Property type</FormLabel>
+          <FormLabel>
+            Property type <span className="text-destructive">*</span>
+          </FormLabel>
           <FormControl>
             <Select defaultValue={field.value} onValueChange={field.onChange}>
               <SelectTrigger className="w-full">

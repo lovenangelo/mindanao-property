@@ -1,4 +1,6 @@
+import { Asterisk } from "lucide-react"
 import { UseFormReturn } from "react-hook-form"
+import * as z from "zod"
 
 import {
   FormControl,
@@ -9,21 +11,14 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 
+import propertiesScheme from "../schema"
+
+const basicInformationSchema = propertiesScheme.BasicInformationSchema
+
 export default function LocationFields({
   form,
 }: {
-  form: UseFormReturn<
-    {
-      street_address: string
-      property_type: string
-      city: string
-      state: string
-      zip_code: number
-      country: string
-    },
-    any,
-    undefined
-  >
+  form: UseFormReturn<z.infer<typeof basicInformationSchema>>
 }) {
   return (
     <>
@@ -32,9 +27,16 @@ export default function LocationFields({
         name="street_address"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Street Address</FormLabel>
+            <FormLabel>
+              Street Address <span className="text-destructive">*</span>
+            </FormLabel>
             <FormControl>
-              <Input {...field} />
+              <Input
+                placeholder="Enter street address"
+                autoCapitalize="word"
+                required
+                {...field}
+              />
             </FormControl>
             <FormMessage />
           </FormItem>
@@ -45,9 +47,11 @@ export default function LocationFields({
         name="city"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>City</FormLabel>
+            <FormLabel>
+              City <span className="text-destructive">*</span>
+            </FormLabel>
             <FormControl>
-              <Input {...field} />
+              <Input placeholder="Enter city" required {...field} />
             </FormControl>
             <FormMessage />
           </FormItem>
@@ -58,9 +62,11 @@ export default function LocationFields({
         name="state"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Province</FormLabel>
+            <FormLabel>
+              Province <span className="text-destructive">*</span>
+            </FormLabel>
             <FormControl>
-              <Input {...field} />
+              <Input placeholder="Enter province" required {...field} />
             </FormControl>
             <FormMessage />
           </FormItem>
@@ -71,9 +77,13 @@ export default function LocationFields({
         name="zip_code"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Zip code</FormLabel>
+            <FormLabel>
+              Zip code <span className="text-destructive">*</span>
+            </FormLabel>
             <FormControl>
               <Input
+                placeholder="Enter 4 digit zip code"
+                required
                 type="number"
                 {...field}
                 onChange={(event) => {
@@ -95,9 +105,11 @@ export default function LocationFields({
         name="country"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Country</FormLabel>
+            <FormLabel>
+              Country <span className="text-destructive">*</span>
+            </FormLabel>
             <FormControl>
-              <Input {...field} />
+              <Input required readOnly {...field} />
             </FormControl>
             <FormMessage />
           </FormItem>

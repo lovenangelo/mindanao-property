@@ -15,12 +15,12 @@ export default function BasicInformationForm() {
   const form = useForm<z.infer<typeof basicInformationFormSchema>>({
     resolver: zodResolver(basicInformationFormSchema),
     defaultValues: {
-      property_type: "",
+      property_type: "single_family",
       street_address: "",
       city: "",
       state: "",
-      zip_code: 0,
-      country: "",
+      zip_code: "",
+      country: "Philippines",
     },
   })
   function onSubmit(values: z.infer<typeof basicInformationFormSchema>) {
