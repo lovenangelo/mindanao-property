@@ -17,7 +17,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
-import propertiesScheme from "../schema"
+import propertiesScheme from "../../schema"
 
 const basicInformationSchema = propertiesScheme.BasicInformationSchema
 

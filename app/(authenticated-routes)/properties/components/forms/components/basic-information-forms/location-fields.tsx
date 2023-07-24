@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 
-import propertiesScheme from "../schema"
+import propertiesScheme from "../../schema"
 
 const basicInformationSchema = propertiesScheme.BasicInformationSchema
 

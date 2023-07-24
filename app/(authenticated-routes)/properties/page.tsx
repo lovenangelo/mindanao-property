@@ -12,8 +12,8 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 
-import PropertiesForm from "./components/forms/properties-form"
-import GMap from "./components/google-map"
+import PropertiesForm from "./components/forms/main-properties-form"
+import GMap from "./components/maps/google-map-listing"
 
 export default function PropertiesPage() {
   const [showMap, setShowMap] = useState(true)
@@ -42,7 +42,7 @@ export default function PropertiesPage() {
             >
               List a property
             </DialogTrigger>
-            <DialogContent className="flex items-center justify-center flex-col w-full p-8">
+            <DialogContent className="flex items-center justify-center flex-col h-3/4 w-3/4 p-8">
               <DialogHeader>
                 <DialogTitle>List a new property</DialogTitle>
               </DialogHeader>
