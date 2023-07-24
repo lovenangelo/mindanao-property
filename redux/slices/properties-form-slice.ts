@@ -4,7 +4,7 @@ import { HYDRATE } from "next-redux-wrapper"
 
 // Define a type for the slice state
 interface FormSection {
-  value: "basic-info-form" | "lat-lng-form"
+  value: "basic-info-form" | "lat-lng-form" | "property-details"
 }
 
 // Define the initial state using that type

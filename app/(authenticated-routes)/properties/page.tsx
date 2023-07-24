@@ -1,6 +1,8 @@
 "use client"
 
 import { useState } from "react"
+import { useAppDispatch } from "@/redux/hooks"
+import { changeFormSection } from "@/redux/slices/properties-form-slice"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -17,6 +19,7 @@ import GMap from "./components/maps/google-map-listing"
 
 export default function PropertiesPage() {
   const [showMap, setShowMap] = useState(true)
+  const dispatch = useAppDispatch()
   return (
     <div className="w-full h-full">
       <div className="flex m-4 space-x-2 justify-between">
@@ -34,7 +37,13 @@ export default function PropertiesPage() {
           </Button>
         </div>
         <div>
-          <Dialog>
+          <Dialog
+            onOpenChange={(open) => {
+              if (!open) {
+                dispatch(changeFormSection({ value: "basic-info-form" }))
+              }
+            }}
+          >
             <DialogTrigger
               className={cn(
                 "bg-primary text-primary-foreground h-10 py-2 px-4 rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background"

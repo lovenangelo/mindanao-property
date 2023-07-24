@@ -4,6 +4,7 @@ import { useAppSelector } from "@/redux/hooks"
 
 import BasicInformationForm from "./basic-information-form"
 import LatLngForm from "./lat-lng-form"
+import PropertyDetailsForm from "./properties-details"
 
 export default function PropertiesForm() {
   const formSection = useAppSelector(
@@ -24,6 +25,14 @@ export default function PropertiesForm() {
     return (
       <div className="w-full h-full">
         <LatLngForm />
+      </div>
+    )
+  }
+
+  if (formSection == "property-details") {
+    return (
+      <div className="w-full h-full">
+        <PropertyDetailsForm />
       </div>
     )
   }

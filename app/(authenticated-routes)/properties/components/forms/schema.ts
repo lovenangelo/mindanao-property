@@ -19,7 +19,6 @@ const LocationDetailsSchema = z.object({
 // Section 3: Property Details
 const PropertyDetailsSchema = z.object({
   price: z.number().positive(),
-  currency: z.string().nonempty(),
   bedrooms: z.number().positive(),
   bathrooms: z.number().positive(),
   area_sqft: z.number().positive(),
