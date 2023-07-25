@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 export default function NavButtons() {
   const dispatch = useAppDispatch()
   return (
-    <div className="w-full flex justify-between items-center">
+    <div className="w-full flex justify-between items-center mt-2">
       <Button
         onClick={() => {
           dispatch(changeFormSection({ value: "basic-info-form" }))

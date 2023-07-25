@@ -36,36 +36,36 @@ export const siteConfig = {
     },
   ],
   sideBarNav: [
-    {
-      title: "Overview",
-      href: "/overview",
-      disabled: false,
-      icon: Icons.overview,
-    },
+    // {
+    //   title: "Overview",
+    //   href: "/overview",
+    //   disabled: false,
+    //   icon: Icons.overview,
+    // },
     {
       title: "Properties",
       href: "/properties",
       disabled: false,
       icon: Icons.property,
     },
-    {
-      title: "Reports",
-      href: "/reports",
-      disabled: false,
-      icon: Icons.analytics,
-    },
-    {
-      title: "Notifications",
-      href: "/notifications",
-      disabled: false,
-      icon: Icons.notification,
-    },
-    {
-      title: "Chat",
-      href: "/message",
-      disabled: false,
-      icon: Icons.chat,
-    },
+    // {
+    //   title: "Reports",
+    //   href: "/reports",
+    //   disabled: false,
+    //   icon: Icons.analytics,
+    // },
+    // {
+    //   title: "Notifications",
+    //   href: "/notifications",
+    //   disabled: false,
+    //   icon: Icons.notification,
+    // },
+    // {
+    //   title: "Chat",
+    //   href: "/message",
+    //   disabled: false,
+    //   icon: Icons.chat,
+    // },
     {
       title: "Account",
       href: "/account",

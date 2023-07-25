@@ -31,7 +31,7 @@ export default function PropertiesForm() {
 
   if (formSection == "property-details") {
     return (
-      <div className="w-full h-full">
+      <div className="w-full h-full overflow-auto">
         <PropertyDetailsForm />
       </div>
     )

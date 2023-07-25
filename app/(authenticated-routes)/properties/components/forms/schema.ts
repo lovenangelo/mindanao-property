@@ -18,26 +18,13 @@ const LocationDetailsSchema = z.object({
 
 // Section 3: Property Details
 const PropertyDetailsSchema = z.object({
-  price: z.number().positive(),
+  price: z.number().positive().or(z.string()),
   bedrooms: z.number().positive(),
   bathrooms: z.number().positive(),
-  area_sqft: z.number().positive(),
-  lot_size_acres: z.number().positive(),
-  year_built: z.number().min(0),
-})
-
-// Section 4: Description and Amenities
-const DescriptionAmenitiesSchema = z.object({
-  description: z.string(),
-  amenities: z.string(),
-})
-
-// Section 5: Agent and Status Details
-const StatusDetailsSchema = z.object({
-  status: z.enum(["for sale", "sold", "rented"]), // Modify the status options as needed
-  listed_date: z.date().optional(),
-  sold_date: z.date().optional(),
-  last_updated: z.date(),
+  area_sqft: z.number().positive().or(z.string()),
+  lot_size_acres: z.number().positive().or(z.string()),
+  status: z.enum(["for sale", "for rent", "sold", "rented"]), // Modify the status options as needed
+  additional_info: z.string(),
 })
 
 // Full Properties Schema combining all sections
@@ -45,16 +32,13 @@ const PropertiesSchema = z.object({
   basic_info: BasicInformationSchema,
   location_details: LocationDetailsSchema,
   property_details: PropertyDetailsSchema,
-  description_amenities: DescriptionAmenitiesSchema,
-  agent_status_details: StatusDetailsSchema,
 })
 
 const propertiesScheme = {
   BasicInformationSchema,
   LocationDetailsSchema,
   PropertiesSchema,
-  DescriptionAmenitiesSchema,
-  StatusDetailsSchema,
+  PropertyDetailsSchema,
 }
 
 export default propertiesScheme
