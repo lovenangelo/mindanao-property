@@ -44,9 +44,6 @@ export default function BasicInformationForm() {
           <div className="flex flex-col w-full h-full space-y-4 p-2">
             <SelectPropertyType form={form} />
             <LocationFields form={form} />
-            <div className="h-full w-full">
-              <GMap />
-            </div>
             <div className="w-full flex justify-end">
               <Button className="w-24" type="submit">
                 Next

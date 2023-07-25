@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { Dispatch, SetStateAction, useState } from "react"
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api"
 
 import { Skeleton } from "@/components/ui/skeleton"
@@ -12,7 +12,11 @@ const containerStyle = {
   height: "100%",
 }
 
-const GMap = () => {
+const GMap = ({
+  setShowError,
+}: {
+  setShowError: Dispatch<SetStateAction<boolean>>
+}) => {
   const [center, setCenter] = useState<{
     lat: number
     lng: number
@@ -50,32 +54,34 @@ const GMap = () => {
   }, [])
 
   return isLoaded ? (
-    <GoogleMap
-      mapContainerStyle={containerStyle}
-      center={center}
-      zoom={7}
-      onLoad={onLoad}
-      onUnmount={onUnmount}
-      onClick={onMapClick}
-      options={{
-        mapTypeControl: false,
-        streetViewControl: false,
-        fullscreenControl: false,
-      }}
-    >
-      <PlacesAutocomplete setCenter={setCenter} />
-      {/* Child components, such as markers, info windows, etc. */}
-      <>
-        {clickedLocation && (
-          <Marker
-            position={{
-              lat: clickedLocation.lat(),
-              lng: clickedLocation.lng(),
-            }}
-          />
-        )}
-      </>
-    </GoogleMap>
+    <>
+      <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={center}
+        zoom={7}
+        onLoad={onLoad}
+        onUnmount={onUnmount}
+        onClick={onMapClick}
+        options={{
+          mapTypeControl: false,
+          streetViewControl: false,
+          fullscreenControl: false,
+        }}
+      >
+        <PlacesAutocomplete setCenter={setCenter} />
+        {/* Child components, such as markers, info windows, etc. */}
+        <>
+          {clickedLocation && (
+            <Marker
+              position={{
+                lat: clickedLocation.lat(),
+                lng: clickedLocation.lng(),
+              }}
+            />
+          )}
+        </>
+      </GoogleMap>
+    </>
   ) : (
     <Skeleton className="w-full h-full" />
   )

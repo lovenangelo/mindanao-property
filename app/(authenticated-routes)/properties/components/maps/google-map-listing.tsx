@@ -61,8 +61,8 @@ const GMap = () => {
     // This is just an example of getting and using the map instance!!! don't just blindly copy!
     const bounds = new window.google.maps.LatLngBounds(center)
     map.fitBounds(bounds)
-    // setMap(map)
-    // addMarkers(map)
+    setMap(map)
+    addMarkers(map)
   }, [])
 
   const onUnmount = React.useCallback(function callback(map: google.maps.Map) {
@@ -76,6 +76,11 @@ const GMap = () => {
       zoom={10}
       onLoad={onLoad}
       onUnmount={onUnmount}
+      options={{
+        mapTypeControl: false,
+        streetViewControl: false,
+        fullscreenControl: false,
+      }}
     >
       <PlacesAutocomplete setCenter={setCenter} />
       {/* Child components, such as markers, info windows, etc. */}
