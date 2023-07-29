@@ -127,7 +127,6 @@ export default function PropertyDetailsForm() {
                 </FormItem>
               )}
             />
-
             <FormField
               control={form.control}
               name="additional_info"
@@ -156,7 +155,6 @@ export default function PropertyDetailsForm() {
                 </FormItem>
               )}
             />
-
             <FormField
               control={form.control}
               name="additional_info"

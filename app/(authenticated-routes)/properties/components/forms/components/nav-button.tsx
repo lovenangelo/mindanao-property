@@ -3,7 +3,13 @@ import { changeFormSection } from "@/redux/slices/properties-form-slice"
 
 import { Button } from "@/components/ui/button"
 
-export default function NavButtons() {
+export default function NavButtons({
+  nextButtonText,
+  nextButtonSection,
+}: {
+  nextButtonText: string
+  nextButtonSection: string
+}) {
   const dispatch = useAppDispatch()
   return (
     <div className="w-full flex justify-between items-center mt-2">
